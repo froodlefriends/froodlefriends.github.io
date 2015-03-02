@@ -41,8 +41,11 @@
 		document.getElementById('myCanvas').onmouseleave = myMouseleave;
 
 		</script>
-
+		
+		<p><fb:login-button autologoutlink="true"></fb:login-button></p>
+		<p><fb:like></fb:like></p>
 		<div id="fb-root"></div>
+		
 		<script>
 		  window.fbAsyncInit = function() {
 			FB.init({appId: '776638695748072', status: true, cookie: true,
@@ -57,5 +60,5 @@
 			document.getElementById('fb-root').appendChild(e);
 		  }());
 		</script>
-</body>
+	</body>
 </html>
