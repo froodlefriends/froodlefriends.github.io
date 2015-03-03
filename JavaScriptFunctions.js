@@ -136,7 +136,7 @@ function loadImage() {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     var img = document.getElementById("image");
-    ctx.drawImage(img,10,10);
+    ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
 }
 
 function reset(){
@@ -159,8 +159,19 @@ function setColour(){
 
 function resizeCanvas() {
 	console.log("width: " + document.getElementById("image").width + " height: " + document.getElementById("image").height);
-	document.getElementById("myCanvas").width = document.getElementById("image").width;
-	document.getElementById("myCanvas").height = document.getElementById("image").height;
+	document.getElementById("myCanvas").width = window.innerWidth;
+	document.getElementById("myCanvas").height = window.innerHeight;
+}
+
+function resizeImage() {
+	document.getElementById("image").width = document.getElementById("myCanvas").width;
+	document.getElementById("image").height = document.getElementById("myCanvas").height;
+	console.log("width: " + document.getElementById("image").width + " height: " + document.getElementById("image").height);
+	loadImage();
+}
+
+function resizeWindow() {
+	
 }
 
 function componentToHex(c) {

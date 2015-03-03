@@ -1,0 +1,21 @@
+html, body { height: 100%; }
+* { margin: 0; }
+body {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-size: 1em;
+    line-height: 1.3em;
+    color: #f0f0f0;
+    /* Stops Mobile Safari from auto-adjusting font-sizes */
+    -webkit-text-size-adjust: 100%;
+    /* improves the text rendering in more recents browsers */
+    text-rendering: optimizeLegibility;
+    padding: 0;
+    overflow-x: hidden;
+    background: url(images/stone.jpg) no-repeat center center fixed; 
+    background-color: #333; 
+    background-size: 100% 100%;
+    background-size: cover;
+}
