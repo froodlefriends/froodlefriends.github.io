@@ -28,12 +28,17 @@ width=1000 height=700>
 
 <canvas id="myCanvas" width="1080" height="720" style="border:1px solid #c3c3c3;"></canvas>
 
+<p><fb:login-button autologoutlink="true"></fb:login-button></p>
+<p><fb:like></fb:like></p>
+<div id="fb-root"></div>
+
 <script type="text/javascript">
 
 document.ready = setColour();
 document.ready = resizeCanvas();
 
 //load image
+document.ready = initFb();
 document.getElementById("image").onload = loadImage;	
 
 //set up mouse event listeners
@@ -42,25 +47,6 @@ document.getElementById('myCanvas').onmouseup = myMouseup;
 document.getElementById('myCanvas').onmousemove = myMousemove;
 document.getElementById('myCanvas').onmouseleave = myMouseleave;
 
-</script>
-
-<p><fb:login-button autologoutlink="true"></fb:login-button></p>
-<p><fb:like></fb:like></p>
-<div id="fb-root"></div>
-
-<script>
-		  window.fbAsyncInit = function() {
-			FB.init({appId: '776638695748072', status: true, cookie: true,
-					 xfbml: true});
-		  };
-		  (function() {
-			var e = document.createElement('script');
-			e.type = 'text/javascript';
-			e.src = document.location.protocol +
-			  '//connect.facebook.net/en_US/all.js';
-			e.async = true;
-			document.getElementById('fb-root').appendChild(e);
-		  }());
 </script>
 
 </body>
