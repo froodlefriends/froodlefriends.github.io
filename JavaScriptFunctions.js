@@ -43,7 +43,7 @@ function initFb(){
 			/* handle the result */
 				console.log("got profiile picture");
 				//var parseResponse = JSON.parse(response);
-				console.log(response['url']);
+				console.log(response.data.url);
 			}
 			else{
 				console.log("error getting picture");
