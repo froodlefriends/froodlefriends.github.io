@@ -10,6 +10,7 @@ var currStroke = new stroke();
 var accessToken;
 
 var img = new Image();
+img .setAttribute('crossOrigin', 'anonymous');
 img.src = "https://scontent-ams.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10629703_837270849663201_5201753390617732430_n.jpg?oh=ccc2a462bf92f548c0146b02a7fa690b&oe=558A7A4E";
 
 //colour stuff
