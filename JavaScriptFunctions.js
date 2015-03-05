@@ -50,6 +50,7 @@ function initFb(){
 	FB.api(
 		"/me/picture",
 		function (response) {
+			alert("getting profile picture");
 		  if (response && !response.error) {
 			/* handle the result */
 			console.log("getting profiile picture");
