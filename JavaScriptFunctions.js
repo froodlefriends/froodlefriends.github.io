@@ -31,6 +31,20 @@ function initFb(){
 		  var welcomeBlock = document.getElementById('fb-welcome');
 		  welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
 		});
+		
+		FB.api(
+		"/me/picture",
+		function (response) {
+			console.log("getting profiile picture");
+			if (response && !response.error) {
+			/* handle the result */
+				console.log("got profiile picture");
+				console.log(response.url);
+			}
+			else{
+				console.log("error getting picture");
+			}
+		});
 	  }
 	}
 
@@ -47,17 +61,6 @@ function initFb(){
 	  }
 	});
 
-	FB.api(
-		"/me/picture",
-		function (response) {
-			alert("getting profile picture");
-		  if (response && !response.error) {
-			/* handle the result */
-			console.log("getting profiile picture");
-			console.log(response.url);
-		  }
-		}
-	);
 
 		// ADD ADDITIONAL FACEBOOK CODE HERE
 	  };
