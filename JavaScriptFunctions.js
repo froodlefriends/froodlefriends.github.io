@@ -54,7 +54,7 @@ function initFb(){
 					var ctx = c.getContext("2d");
 					ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
 					console.log("set image");
-				});
+				};
 				img.src = response.data.url;
 				
 			}
