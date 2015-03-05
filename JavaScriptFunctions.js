@@ -98,30 +98,12 @@ function initFb(){
 function postPicture(){
 	// assuming your canvas drawing has already exported to dataUrl
 	var canvas = document.getElementById("myCanvas");
-	var dataUrl = canvas.toDataURL('png').
 	 
-	// slice out the mime type from dataUrl
-	var imgdata = dataUrl.match(/data:(image\/.+);base64,(.+)/);
-	try{
-			blob = dataURItoBlob(imgdata[2], imgdata[1]);
-	}catch(e){ console.log(e); }
-	var fd = new FormData();
-	// set your FB accessToken
-	
-	
-	
-	fd.append("access_token", accessToken);
-	fd.append("source", blob);
-	fd.append("message", "My Photo Description");
-	 
-	$.ajax({
-		url:"https://graph.facebook.com/me/photos?access_token=" + accessToken,
-		type: "POST",
-		data: fd,
-		processData: false,
-		contentType: false,
-		cache: false
-	});
+	var c = canvas.toDataURL('image/png');
+	var encodedPng = c.substring(c.indexOf(',')+1,c.length);
+	var decodedPng = Base64Binary.decode(encodedPng);
+
+	PostImageToFacebook(accessToken, 'shareImage.png', 'image/png', decodedPng, '');
 }
 
 function myMousedown(e){
@@ -268,33 +250,30 @@ function resizeWindow() {
 }
 
 
-function dataURItoBlob(dataURI, mime) {
-    // convert base64 to raw binary data held in a string
-    // doesn't handle URLEncoded DataURIs
- 
-    var byteString = window.atob(dataURI);
- 
-    // separate out the mime component
- 
- 
-    // write the bytes of the string to an ArrayBuffer
-    //var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(byteString.length);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
+function PostImageToFacebook( authToken, filename, mimeType, imageData, message )
+{
+    // this is the multipart/form-data boundary we'll use
+    var boundary = '----ThisIsTheBoundary1234567890';
+    
+    // let's encode our image file, which is contained in the var
+    var formData = '--' + boundary + '\r\n'
+    formData += 'Content-Disposition: form-data; name="source"; filename="' + filename + '"\r\n';
+    formData += 'Content-Type: ' + mimeType + '\r\n\r\n';
+    for ( var i = 0; i < imageData.length; ++i )
+    {
+        formData += String.fromCharCode( imageData[ i ] & 0xff );
     }
- 
-    // write the ArrayBuffer to a blob, and you're done
-    var blob = new Blob([ia], { type: mime });
- 
-    return blob;
-}
-
-function componentToHex(c) {
-    var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
-}
-
-function rgbToHex(r, g, b) {
-    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    formData += '\r\n';
+    formData += '--' + boundary + '\r\n';
+    formData += 'Content-Disposition: form-data; name="message"\r\n\r\n';
+    formData += message + '\r\n'
+    formData += '--' + boundary + '--\r\n';
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open( 'POST', 'https://graph.facebook.com/me/photos?access_token=' + authToken, true );
+    xhr.onload = xhr.onerror = function() {
+        console.log( xhr.responseText );
+    };
+    xhr.setRequestHeader( "Content-Type", "multipart/form-data; boundary=" + boundary );
+    xhr.sendAsBinary( formData );
 }
