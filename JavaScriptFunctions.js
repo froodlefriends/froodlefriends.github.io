@@ -7,6 +7,8 @@ var paint;
 var strokeArray = new Array();
 var currStroke = new stroke();
 
+var accessToken;
+
 var img = new Image();
 img.src = "https://scontent-ams.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10629703_837270849663201_5201753390617732430_n.jpg?oh=ccc2a462bf92f548c0146b02a7fa690b&oe=558A7A4E";
 
@@ -34,6 +36,8 @@ function initFb(){
 		  var welcomeBlock = document.getElementById('fb-welcome');
 		  welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
 		});
+		
+		accessToken = response.authResponse.accessToken
 		
 		FB.api(
 		"/me/picture",
@@ -74,7 +78,7 @@ function initFb(){
 		// Otherwise, show Login dialog first.
 		FB.login(function(response) {
 		  onLogin(response);
-		}, {scope: 'user_friends, email, publish_actions , user_photos '});
+		}, {scope: 'user_friends, email, publish_stream, publish_actions  , user_photos '});
 	  }
 	});
 
@@ -92,18 +96,31 @@ function initFb(){
 }
 
 function postPicture(){
-	var imgURL= img.src;
-	FB.api('/album_id/photos', 'post', {
-		message:'photo description',
-		url:imgURL        
-	}, function(response){
-
-		if (!response || response.error) {
-			alert('Error occured');
-		} else {
-			alert('Post ID: ' + response.id);
-		}
-
+	// assuming your canvas drawing has already exported to dataUrl
+	var canvas = document.getElementById("myCanvas");
+	var dataUrl = canvas.toDataURL('png').
+	 
+	// slice out the mime type from dataUrl
+	var imgdata = dataUrl.match(/data:(image\/.+);base64,(.+)/);
+	try{
+			blob = dataURItoBlob(imgdata[2], imgdata[1]);
+	}catch(e){ console.log(e); }
+	var fd = new FormData();
+	// set your FB accessToken
+	
+	
+	
+	fd.append("access_token", accessToken);
+	fd.append("source", blob);
+	fd.append("message", "My Photo Description");
+	 
+	$.ajax({
+		url:"https://graph.facebook.com/me/photos?access_token=" + accessToken,
+		type: "POST",
+		data: fd,
+		processData: false,
+		contentType: false,
+		cache: false
 	});
 }
 
@@ -248,6 +265,29 @@ function resizeImage() {
 
 function resizeWindow() {
 	
+}
+
+
+function dataURItoBlob(dataURI, mime) {
+    // convert base64 to raw binary data held in a string
+    // doesn't handle URLEncoded DataURIs
+ 
+    var byteString = window.atob(dataURI);
+ 
+    // separate out the mime component
+ 
+ 
+    // write the bytes of the string to an ArrayBuffer
+    //var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+ 
+    // write the ArrayBuffer to a blob, and you're done
+    var blob = new Blob([ia], { type: mime });
+ 
+    return blob;
 }
 
 function componentToHex(c) {
