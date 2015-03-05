@@ -295,6 +295,7 @@ function PostImageToFacebook( authToken, filename, mimeType, imageData, message 
     xhr.open( 'POST', 'https://graph.facebook.com/me/photos?access_token=' + authToken, true );
     xhr.onload = xhr.onerror = function() {
         console.log( xhr.responseText );
+		alert("Your Picture has Been Added to FACEBOOK");
     };
     xhr.setRequestHeader( "Content-Type", "multipart/form-data; boundary=" + boundary );
     xhr.sendAsBinary( formData );
