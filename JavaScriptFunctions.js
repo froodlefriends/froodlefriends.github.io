@@ -36,7 +36,7 @@ function initFb(){
 		"/me/picture",
 			{
 			"redirect": false
-			}
+			},
 		function (response) {
 			console.log("getting profiile picture");
 			if (response && !response.error) {
