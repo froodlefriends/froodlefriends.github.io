@@ -7,6 +7,9 @@ var paint;
 var strokeArray = new Array();
 var currStroke = new stroke();
 
+var img = new Image();
+img.src = "https://scontent-ams.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10629703_837270849663201_5201753390617732430_n.jpg?oh=ccc2a462bf92f548c0146b02a7fa690b&oe=558A7A4E";
+
 //colour stuff
 var currColour = "#9b9b9b";
 
@@ -46,7 +49,6 @@ function initFb(){
 				//var parseResponse = JSON.parse(response);
 				console.log(response.data.url);
 				
-				var img = new Image();
 				img.onload = function(){
 					var c = document.getElementById("myCanvas");
 					var ctx = c.getContext("2d");
@@ -194,7 +196,6 @@ function addStroke(myStroke) {
 function loadImage() {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
-    var img = document.getElementById("image");
     ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
 }
 
