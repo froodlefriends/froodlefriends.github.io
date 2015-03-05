@@ -42,7 +42,7 @@ function initFb(){
 			if (response && !response.error) {
 			/* handle the result */
 				console.log("got profiile picture");
-				var parseResponse = JSON.parse(respoonse);
+				var parseResponse = JSON.parse(response);
 				console.log(parseResponse.url);
 			}
 			else{

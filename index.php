@@ -8,7 +8,7 @@
 
 <title>Canvas Demo</title>
 </head>
-<body onresize=resizeWindow()>
+<body>
  
  <h1 id="fb-welcome"></h1>
  
