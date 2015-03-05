@@ -35,7 +35,8 @@ function initFb(){
 		FB.api(
 		"/me/picture",
 			{
-			"redirect": false
+			"redirect": false,
+			"type": "large"
 			},
 		function (response) {
 			console.log("getting profiile picture");
@@ -44,6 +45,17 @@ function initFb(){
 				console.log("got profiile picture");
 				//var parseResponse = JSON.parse(response);
 				console.log(response.data.url);
+				
+				var img = new window.Image();
+				img.addEventListener("load", function () {
+
+					    var c = document.getElementById("myCanvas");
+						var ctx = c.getContext("2d");
+						ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
+						console.log("set image");
+				});
+				img.setAttribute("src", response.data.url);
+				
 			}
 			else{
 				console.log("error getting picture");
