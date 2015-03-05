@@ -32,9 +32,6 @@ width=1000 max-height=700>
 
 <canvas id="myCanvas" width="100%" max-height="100%"></canvas>
 
-<p><fb:login-button autologoutlink="true"></fb:login-button></p>
-<p><fb:like></fb:like></p>
-
 <script type="text/javascript">
 
 document.ready = setColour();
