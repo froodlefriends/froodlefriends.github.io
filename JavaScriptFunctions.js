@@ -21,6 +21,18 @@ function hello(){
 	alert("hello world");
 }
 
+function init(){
+	if ( XMLHttpRequest.prototype.sendAsBinary === undefined ) {
+    XMLHttpRequest.prototype.sendAsBinary = function(string) {
+        var bytes = Array.prototype.map.call(string, function(c) {
+            return c.charCodeAt(0) & 0xff;
+        });
+        this.send(new Uint8Array(bytes).buffer);
+    };
+}
+	
+}
+
 function initFb(){
 	window.fbAsyncInit = function() {
 		FB.init({
