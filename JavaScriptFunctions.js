@@ -91,6 +91,22 @@ function initFb(){
 	   }(document, 'script', 'facebook-jssdk'));
 }
 
+function postPicture(){
+	var imgURL= img.src;
+	FB.api('/album_id/photos', 'post', {
+		message:'photo description',
+		url:imgURL        
+	}, function(response){
+
+		if (!response || response.error) {
+			alert('Error occured');
+		} else {
+			alert('Post ID: ' + response.id);
+		}
+
+	});
+}
+
 function myMousedown(e){
 	  var mouseX = e.pageX - this.offsetLeft;
 	  var mouseY = e.pageY - this.offsetTop;

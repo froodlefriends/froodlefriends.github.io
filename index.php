@@ -20,6 +20,7 @@ width=1000 max-height=700>
 	<div>
 		<button type="button" onclick=reset()>Reset</button>
 		<button type="button" onclick=undo()>Undo</button>
+		<button type="button" onclick=postPicture()>Post</button>
 	</div>
 	<div>
 		<p>R<input type="range" id="redRange" max=255 value=155 onmousemove=setColour()></input></p>
