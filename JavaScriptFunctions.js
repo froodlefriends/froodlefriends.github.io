@@ -46,6 +46,17 @@ FB.getLoginStatus(function(response) {
     }, {scope: 'user_friends, email'});
   }
 });
+
+FB.api(
+    "/me/picture",
+    function (response) {
+      if (response && !response.error) {
+        /* handle the result */
+		console.log(response.url);
+      }
+    }
+);
+
     // ADD ADDITIONAL FACEBOOK CODE HERE
   };
 
