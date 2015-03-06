@@ -25,7 +25,7 @@ width=1000 max-height=700>
 	</div>
 
 	<div>
-		<button type="button" onclick=reset()>Reset</button>
+		<button type="button" onclick=resetAll()>Reset</button>
 		<button type="button" onclick=undo()>Undo</button>
 		<button type="button" onclick=postPicture()>Post</button>
 	</div>
