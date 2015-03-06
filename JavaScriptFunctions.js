@@ -223,7 +223,7 @@ function addStroke(myStroke) {
 
 function loadFromURL() {
 	console.log('am here');
-	var imageURL = document.getElementsById("urlToUpload").value;
+	var imageURL = document.getElementById("urlToUpload").value;
 	console.log(imageURL);
 	img.src = imageURL;
 	loadImage();
