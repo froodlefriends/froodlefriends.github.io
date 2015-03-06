@@ -221,6 +221,13 @@ function addStroke(myStroke) {
 	strokeArray.add(myStroke);
 }
 
+function loadFromURL() {
+	var imageURL = document.getElementByID("urlToUpload").value;
+	console.log(imageURL);
+	img.src = imageURL;
+	loadImage();
+}
+
 function loadImage() {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");

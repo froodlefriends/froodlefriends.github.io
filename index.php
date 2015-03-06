@@ -10,7 +10,7 @@
 </head>
 <body>
  
- <h1 id="fb-welcome"></h1>
+ <h1 id="fb-welcome"></h1> 
  
 <p hidden>Image to use:</p>
 <img hidden id="image" src="https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10461476_10152506437588124_6370622596565830669_n.jpg?oh=119f18951cd74eea45391ff1d37c5fd9&oe=5578DA0E&__gda__=1434538008_6a216c2d64b02a15cb3e597aabe0a1b9"
@@ -21,6 +21,12 @@ width=1000 max-height=700>
 		<button type="button" onclick=reset()>Reset</button>
 		<button type="button" onclick=undo()>Undo</button>
 		<button type="button" onclick=postPicture()>Post</button>
+	</div>
+	<div>
+		<p>
+		<input type="text" id="urlToUpload">Enter photo URL</input>
+		<button type="button" onclick=loadFromURL()>Upload Photo</button>"
+		</p>
 	</div>
 	<div>
 		<p>R<input type="range" id="redRange" max=255 value=155 onmousemove=setColour()></input></p>
