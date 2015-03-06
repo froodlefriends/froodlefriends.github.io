@@ -235,14 +235,18 @@ function loadImage() {
     ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
 }
 
+function resetAll(){
+	strokeArray.length = 0;
+	currStroke.length = 0;
+	reset();
+}
+
 function reset(){
 	context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
 	clickX = new Array();
 	clickY = new Array();
 	clickDrag = new Array();
 	clickColor = new Array();
-	strokeArray = new Array();
-	currStroke = new stroke();
 	loadImage();
 }
 
