@@ -18,16 +18,18 @@ width=1000 max-height=700>
 
 <div>
 	<div>
+		<p>
+		<input type="text" id="urlToUpload" placeholder="Enter photo URL"></input>
+		<button type="button" onclick=loadFromURL()>Upload Photo</button>
+		</p>
+	</div>
+
+	<div>
 		<button type="button" onclick=reset()>Reset</button>
 		<button type="button" onclick=undo()>Undo</button>
 		<button type="button" onclick=postPicture()>Post</button>
 	</div>
-	<div>
-		<p>
-		<input type="text" id="urlToUpload" value="Enter photo URL"></input>
-		<button type="button" onclick=loadFromURL()>Upload Photo</button>
-		</p>
-	</div>
+	
 	<div>
 		<p>R<input type="range" id="redRange" max=255 value=155 onmousemove=setColour()></input></p>
 		<p>B<input type="range" id="blueRange" max=255 value=155 onmousemove=setColour()></input></p>
