@@ -172,6 +172,9 @@ function drawAll() {
 	  context.strokeStyle = "#df4b26";
 	  context.lineJoin = "round";
 	  context.lineWidth = 5;
+	  
+	  
+	console.log('stroke array before drawAll: ' + strokeArray.length)
 	  for(var j=0; j<strokeArray.length; j++){
 		  for(var i=0; i < strokeArray[j].clickX.length; i++) {		
 		    context.beginPath();
@@ -236,7 +239,9 @@ function loadImage() {
 }
 
 function resetAll(){
+	console.log('stroke array before set to 0: ' + strokeArray.length)
 	strokeArray.length = 0;
+	console.log('stroke array after set to 0: ' + strokeArray.length)
 	currStroke.length = 0;
 	reset();
 }
