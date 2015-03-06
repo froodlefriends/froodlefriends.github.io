@@ -24,7 +24,7 @@ width=1000 max-height=700>
 	</div>
 	<div>
 		<p>
-		<input type="text" id="urlToUpload">Enter photo URL</input>
+		<input type="text" id="urlToUpload" value="Enter photo URL"></input>
 		<button type="button" onclick=loadFromURL()>Upload Photo</button>"
 		</p>
 	</div>
