@@ -229,7 +229,7 @@ function loadFromURL() {
 	var imageURL = document.getElementById("urlToUpload").value;
 	console.log(imageURL);
 	img.src = imageURL;
-	reset();
+	resetAll();
 }
 
 function loadImage() {
