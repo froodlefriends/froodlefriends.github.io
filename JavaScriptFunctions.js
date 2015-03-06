@@ -241,6 +241,8 @@ function reset(){
 	clickY = new Array();
 	clickDrag = new Array();
 	clickColor = new Array();
+	strokeArray = new Array();
+	currStroke = new stroke();
 	loadImage();
 }
 
