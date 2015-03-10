@@ -32,7 +32,7 @@ width=1000 max-height=700>
 	</div>
 	
 	<div>
-		Pick Colour:<input class="color">
+		Pick Colour:<input class="color" id="colour" value="#FFFFFF" onclick=setColour()>
 	</div>
 </div>
 
@@ -42,7 +42,7 @@ width=1000 max-height=700>
 <script type="text/javascript">
 
 document.ready = init();
-document.ready = setColour();
+//document.ready = setColour();
 document.ready = resizeCanvas();
 document.ready = resizeImage();
 window.onresize = function(){ 
