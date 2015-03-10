@@ -40,15 +40,9 @@ function initFb(){
 		  xfbml      : true,
 		  version    : 'v2.2'
 		});
-
-		
-		
+	
 	function onLogin(response) {
 	  if (response.status == 'connected') {
-		FB.api('/me?fields=first_name', function(data) {
-		  var welcomeBlock = document.getElementById('fb-welcome');
-		  welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-		});
 		
 		accessToken = response.authResponse.accessToken
 		
@@ -256,7 +250,7 @@ function reset(){
 }
 
 function setColour(){
-	 currColour = document.getElementById("colour").color;
+	 currColour = '#' + document.getElementById("colour").color;
 	 console.log("Colour" + currColour);
 	 console.log("Value" + document.getElementById("colour").value);
 }
