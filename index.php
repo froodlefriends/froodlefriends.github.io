@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="JavaScriptFunctions.js"></script>
+<script type="text/javascript" src="jscolor/jscolor.js"></script>
 <link rel="stylesheet" type="text/css" href="main.css"></link>
 
 <title>Canvas Demo</title>
@@ -31,10 +32,7 @@ width=1000 max-height=700>
 	</div>
 	
 	<div>
-		<p>R<input type="range" id="redRange" max=255 value=155 onmousemove=setColour()></input></p>
-		<p>B<input type="range" id="blueRange" max=255 value=155 onmousemove=setColour()></input></p>
-		<p>G<input type="range" id="greenRange" max=255 value=155 onmousemove=setColour()></input></p>
-		<div id="sample" style="width:50px; height:50px; border:1px solid #000; display:inline-block;"></div>
+		Pick Colour:<input class="color">
 	</div>
 </div>
 
