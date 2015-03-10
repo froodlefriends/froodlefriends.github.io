@@ -32,7 +32,7 @@ width=1000 max-height=700>
 	</div>
 	
 	<div>
-		Pick Colour:<input class="color" id="colour" value="#FFFFFF" onclick=setColour()>
+		Pick Colour:<input class="color" id="colour" value="#FFFFFF" onchange=setColour()>
 	</div>
 </div>
 

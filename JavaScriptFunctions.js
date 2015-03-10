@@ -256,12 +256,7 @@ function reset(){
 }
 
 function setColour(){
-	 //var r = parseInt(document.getElementById("redRange").value);
-	 //var b = parseInt(document.getElementById("blueRange").value);
-	 //var g = parseInt(document.getElementById("greenRange").value);
-	 //alert("Red: " + r + " Green: " + g + " Blue: " + b + " Hex: " + rgbToHex(r, g, b));
-	 //currColour = rgbToHex(r, g, b);
-	 document.getElementById("colour").style.backgroundColor = currColour;
+	 currColour = document.getElementById("colour").color;
 }
 
 function resizeCanvas() {
