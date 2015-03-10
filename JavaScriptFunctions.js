@@ -257,6 +257,8 @@ function reset(){
 
 function setColour(){
 	 currColour = document.getElementById("colour").color;
+	 console.log("Colour" + currColour);
+	 console.log("Value" + document.getElementById("colour").value);
 }
 
 function resizeCanvas() {
