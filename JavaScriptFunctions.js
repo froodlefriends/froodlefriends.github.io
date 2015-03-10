@@ -251,14 +251,15 @@ function reset(){
 
 function setColour(){
 	 currColour = '#' + document.getElementById("colour").color;
-	 console.log("Colour" + currColour);
-	 console.log("Value" + document.getElementById("colour").value);
+	 //console.log("Colour" + currColour);
+	 //console.log("Value" + document.getElementById("colour").value);
 }
 
 function resizeCanvas() {
 	console.log("width: " + document.getElementById("image").width + " height: " + document.getElementById("image").height);
 	document.getElementById("myCanvas").width = window.innerWidth;
 	document.getElementById("myCanvas").height = window.innerHeight;
+	console.log("resized canvas!!");
 }
 
 function resizeImage() {

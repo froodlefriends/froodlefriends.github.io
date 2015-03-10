@@ -35,19 +35,19 @@ width=1000 max-height=700>
 </div>
 
 
-<canvas id="myCanvas" width="100%" max-height="100%"></canvas>
+<canvas id="myCanvas" width=3000px max-height="100%"></canvas>
 
 <script type="text/javascript">
 
 document.ready = init();
-//document.ready = setColour();
+document.ready = setColour();
 document.ready = resizeCanvas();
-document.ready = resizeImage();
-window.onresize = function(){ 
-								localStorage.setItem("strokeArray1", strokeArray);
-								location.reload();
-								strokeArray = localStorage.getItem("strokeArray1");
-								drawAll();}
+//document.ready = resizeImage();
+//window.onresize = function(){ 
+//								localStorage.setItem("strokeArray1", strokeArray);
+//								location.reload();
+//								strokeArray = localStorage.getItem("strokeArray1");
+//								drawAll();}
 
 //load image
 document.ready = initFb();
