@@ -82,7 +82,7 @@ width=1000 max-height=700>
 <canvas id="myCanvas" width=3000px max-height="100%"></canvas>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
+<script src="js/jquery-1.7.1.min.js"></script>
 
 <script type="text/javascript">
 
