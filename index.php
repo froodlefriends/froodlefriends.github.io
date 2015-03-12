@@ -4,6 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="JavaScriptFunctions.js"></script>
+<script type = "text/javascript" src="csphotoselector.js"></script>
+<script type = "text/javascript" src="FurtherJSFunctions.js"></script>
 <script type="text/javascript" src="jscolor/jscolor.js"></script>
 <link rel="stylesheet" type="text/css" href="main.css"></link>
 <link rel="stylesheet" href="csphotoselector.css">
@@ -19,7 +21,7 @@ width=1000 max-height=700>
 <div>
 	<div>
 		<p>
-		<input type="text" id="urlToUpload" placeholder="Enter photo URL"></input>
+		<input type="text" id="1urlToUpload" placeholder="Enter photo URL"></input>
 		<button type="button" onclick=loadFromURL()>Upload Photo</button>
 		<input id="select" type="button" value="Select from Albums">
 		</p>
@@ -80,8 +82,7 @@ width=1000 max-height=700>
 <canvas id="myCanvas" width=3000px max-height="100%"></canvas>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="csphotoselector.js"></script>
-<script src="FurtherJSFunctions.js"></script>
+
 
 <script type="text/javascript">
 
