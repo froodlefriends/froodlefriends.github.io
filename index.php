@@ -6,6 +6,7 @@
 <script type="text/javascript" src="JavaScriptFunctions.js"></script>
 <script type="text/javascript" src="jscolor/jscolor.js"></script>
 <link rel="stylesheet" type="text/css" href="main.css"></link>
+<link rel="stylesheet" href="csphotoselector.css">
 
 <title>Canvas Demo</title>
 </head>
@@ -20,6 +21,7 @@ width=1000 max-height=700>
 		<p>
 		<input type="text" id="urlToUpload" placeholder="Enter photo URL"></input>
 		<button type="button" onclick=loadFromURL()>Upload Photo</button>
+		<input id="select" type="button" value="Select from Albums">
 		</p>
 	</div>
 
@@ -34,8 +36,51 @@ width=1000 max-height=700>
 	</div>
 </div>
 
+<div id="CSPhotoSelector">
+      <div class="CSPhotoSelector_dialog">
+        <a href="#" id="CSPhotoSelector_buttonClose">x</a>
+        <div class="CSPhotoSelector_form">
+          <div class="CSPhotoSelector_header">
+            <p>Choose from Photos</p>
+          </div>
+
+          <div class="CSPhotoSelector_content CSAlbumSelector_wrapper">
+            <p>Browse your albums until you find a picture you want to use</p>
+            <div class="CSPhotoSelector_searchContainer CSPhotoSelector_clearfix">
+              <div class="CSPhotoSelector_selectedCountContainer">Select an album</div>
+            </div>
+            <div class="CSPhotoSelector_photosContainer CSAlbum_container"></div>
+          </div>
+
+          <div class="CSPhotoSelector_content CSPhotoSelector_wrapper">
+            <p>Select a new photo</p>
+            <div class="CSPhotoSelector_searchContainer CSPhotoSelector_clearfix">
+              <div class="CSPhotoSelector_selectedCountContainer"><span class="CSPhotoSelector_selectedPhotoCount">0</span> / <span class="CSPhotoSelector_selectedPhotoCountMax">0</span> photos selected</div>
+              <a href="#" id="CSPhotoSelector_backToAlbums">Back to albums</a>
+            </div>
+            <div class="CSPhotoSelector_photosContainer CSPhoto_container"></div>
+          </div>
+
+          <div id="CSPhotoSelector_loader"></div>
+
+
+          <div class="CSPhotoSelector_footer CSPhotoSelector_clearfix">
+            <a href="#" id="CSPhotoSelector_pagePrev" class="CSPhotoSelector_disabled">Previous</a>
+            <a href="#" id="CSPhotoSelector_pageNext">Next</a>
+            <div class="CSPhotoSelector_pageNumberContainer">
+              Page <span id="CSPhotoSelector_pageNumber">1</span> / <span id="CSPhotoSelector_pageNumberTotal">1</span>
+            </div>
+            <a href="#" id="CSPhotoSelector_buttonOK">OK</a>
+            <a href="#" id="CSPhotoSelector_buttonCancel">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <canvas id="myCanvas" width=3000px max-height="100%"></canvas>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="csphotoselector.js"></script>
 
 <script type="text/javascript">
 
