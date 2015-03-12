@@ -21,7 +21,7 @@ width=1000 max-height=700>
 <div>
 	<div>
 		<p>
-		<input type="text" id="1urlToUpload" placeholder="Enter photo URL"></input>
+		<input type="text" id="urlToUpload" placeholder="1Enter photo URL"></input>
 		<button type="button" onclick=loadFromURL()>Upload Photo</button>
 		<input id="select" type="button" value="Select from Albums">
 		</p>
