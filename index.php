@@ -99,7 +99,7 @@ document.ready = resizeCanvas();
 
 //load image
 document.ready = initFb();
-document.getElementById("image").onload = loadImage;	
+//document.getElementById("image").onload = loadImage;	
 
 //set up mouse event listeners
 document.getElementById('myCanvas').onmousedown = myMousedown;
