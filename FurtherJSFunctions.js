@@ -93,7 +93,7 @@ $(document).ready(function () {
 		$("#login-status").html("Not logged in");
 	});
 	
-	$(".photoSelect").click(function (e) {
+	$("#select").click(function (e) {
 		console.log('In photoSelect jquery');
 		e.preventDefault();
 		id = null;
