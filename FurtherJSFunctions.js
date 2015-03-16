@@ -1,6 +1,6 @@
 /*globals $, jQuery, CSPhotoSelector */
 
-$(document).ready(function () {
+$('#select').onclick(function () {
 	console.log('select clicked');
 	var selector, logActivity, callbackAlbumSelected, callbackPhotoUnselected, callbackSubmit;
 	var buttonOK = $('#CSPhotoSelector_buttonOK');
