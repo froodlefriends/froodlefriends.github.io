@@ -447,7 +447,7 @@ var CSPhotoSelector = (function(module, $) {
 			var photoId, i, len, removedId;
 			photoId = $photo.attr('data-id');
 			console.log($photo);
-			console.log($photo.innerHTML);
+			console.log($photo[0].innerHTML);
 			console.log($photo('innerHTML'));
 
 			// If the photo is disabled, ignore this
