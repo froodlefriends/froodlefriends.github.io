@@ -376,6 +376,8 @@ var CSPhotoSelector = (function(module, $) {
 			$photosContainer.html($photos.not("." + settings.photoFilteredClass).slice(firstIndex, lastIndex));
 			$photosContainer.children().bind('click', function(e) {
 				e.preventDefault();
+				console.log('testing');
+				console.log(this);
 				selectPhotos($(this));
 			});
 		};
