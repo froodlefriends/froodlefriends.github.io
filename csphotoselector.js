@@ -489,7 +489,7 @@ var CSPhotoSelector = (function(module, $) {
 				if (typeof instanceSettings.callbackMaxSelection === "function") { instanceSettings.callbackMaxSelection(); }
 			}
 			
-			// log(selectedPhotoIds);
+			 log(selectedPhotoIds);
 		};
 
 		// Return an object with access to the public members
