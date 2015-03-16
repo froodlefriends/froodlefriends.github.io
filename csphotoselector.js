@@ -378,7 +378,7 @@ var CSPhotoSelector = (function(module, $) {
 				e.preventDefault();
 				console.log('testing');
 				console.log(this);
-				console.log(this.a.span.img['src']);
+				console.log(this.find("img");
 				selectPhotos($(this));
 			});
 		};
