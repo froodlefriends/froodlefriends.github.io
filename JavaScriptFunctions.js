@@ -66,6 +66,7 @@ function initFb(){
 					ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
 					console.log("set image");
 				};
+				console.log('prof pic is '+response.data.url);
 				img.src = response.data.url;
 				
 			}
