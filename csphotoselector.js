@@ -446,6 +446,7 @@ var CSPhotoSelector = (function(module, $) {
 		selectPhotos = function($photo) {
 			var photoId, i, len, removedId;
 			photoId = $photo.attr('data-id');
+			console.log($photo);
 
 			// If the photo is disabled, ignore this
 			if ($photo.hasClass(settings.albumDisabledClass)) {
