@@ -383,6 +383,7 @@ var CSPhotoSelector = (function(module, $) {
 				wrapper.innerHTML = String(this.innerHTML);
 				console.log(wrapper.firstChild.firstChild);
 				console.log(wrapper.firstChild.firstChild["src"]);
+				console.log(wrapper.firstChild.firstChild['src']);
 				selectPhotos($(this));
 			});
 		};
@@ -454,7 +455,7 @@ var CSPhotoSelector = (function(module, $) {
 			var photoId, i, len, removedId;
 			photoId = $photo.attr('data-id');
 			console.log($photo);
-			console.log($photo[0].innerHTML.img['src']);
+			console.log($photo[0].innerHTML.img["src"]);
 			console.log($photo('innerHTML'));
 
 			// If the photo is disabled, ignore this
