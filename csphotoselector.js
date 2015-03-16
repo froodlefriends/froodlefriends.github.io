@@ -378,7 +378,7 @@ var CSPhotoSelector = (function(module, $) {
 				e.preventDefault();
 				console.log('testing!!!!!!!!!!!!!!!!!');
 				console.log(this);
-				var dom = document.createElement(this.innerHTML);
+				var dom = document.createElement((string)this.innerHTML);
 				console.log(dom);
 				selectPhotos($(this));
 			});
