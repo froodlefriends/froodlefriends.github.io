@@ -12,6 +12,7 @@ $(document).ready(function () {
 	 * ----------------------------------------------------------------- */
 	
 	fbphotoSelect = function(id) {
+		console.log('In fbphotoSelect');
 		// if no user/friend id is sent, default to current user
 		if (!id) id = 'me';
 		
@@ -74,6 +75,7 @@ $(document).ready(function () {
 	 * ----------------------------------------------------------------- */
 	
 	$("#btnLogin").click(function (e) {
+		console.log('In btnLogin jquery');
 		e.preventDefault();
 		FB.login(function (response) {
 			if (response.authResponse) {
@@ -85,12 +87,14 @@ $(document).ready(function () {
 	});
 	
 	$("#btnLogout").click(function (e) {
+		console.log('In btnLogout jquery');
 		e.preventDefault();
 		FB.logout();
 		$("#login-status").html("Not logged in");
 	});
 	
 	$(".photoSelect").click(function (e) {
+		console.log('In photoSelect jquery');
 		e.preventDefault();
 		id = null;
 		if ( $(this).attr('data-id') ) id = $(this).attr('data-id');
@@ -98,6 +102,7 @@ $(document).ready(function () {
 	});
 
 	logActivity = function (message) {
+		console.log('In logActivity jquery');
 		$("#results").append('<div>' + message + '</div>');
 	};
 });

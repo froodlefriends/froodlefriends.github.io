@@ -3,6 +3,8 @@
  * @author: Carson Shold (@cshold)
 */
 var CSPhotoSelector = (function(module, $) {
+	
+	console.log('In CSPhotoSelector');
 
 	// Public functions
 	var init, setAlbums, getAlbums, getAlbumById, getPhotoById, setPhotos, newInstance,
@@ -23,6 +25,7 @@ var CSPhotoSelector = (function(module, $) {
 	 * Initialise the plugin and define global options
 	 */
 	init = function(options) {
+		console.log('In CSPhotoSelector_init');
 
 		// Default settings
 		settings = {
@@ -76,6 +79,7 @@ var CSPhotoSelector = (function(module, $) {
 	 * If your website has already loaded the user's Facebook photos, pass them in here to avoid another API call.
 	 */
 	setAlbums = function(input) {
+	console.log('In CSPhotoSelector_setAlbums');
 		var i, len;
 		if (!input || input.length === 0) {
 			return;
@@ -92,6 +96,7 @@ var CSPhotoSelector = (function(module, $) {
 	};
 	
 	getAlbums = function() {
+	console.log('In CSPhotoSelector_getAlbums');
 		return albums;
 	};
 	
@@ -138,6 +143,8 @@ var CSPhotoSelector = (function(module, $) {
 	 * @param options An object containing settings that are relevant to this particular instance
 	 */
 	newInstance = function(options) {
+	
+	console.log('In CSPhotoSelector_newInstance');
 		// Public functions
 		var showAlbumSelector, showPhotoSelector, hidePhotoSelector, hideAlbumSelector, getselectedAlbumIds, getselectedPhotoIds, setDisabledPhotoIds, reset,
 
@@ -528,6 +535,8 @@ var CSPhotoSelector = (function(module, $) {
 	 * Load the Facebook albums and build the markup
 	 */
 	buildAlbumSelector = function(id, callback) {
+	
+	console.log('In CSPhotoSelector_buildAlbumSelector');
 		var buildMarkup, buildAlbumMarkup;
 		log("buildAlbumSelector");
 		$pagination.show();
@@ -586,6 +595,7 @@ var CSPhotoSelector = (function(module, $) {
 	 * Load the Facebook photos and build the markup
 	 */
 	buildPhotoSelector = function(callback, albumId) {
+	console.log('In CSPhotoSelector_buildPhotoSelector');
 		var buildSecondMarkup, buildPhotoMarkup;
 		log("buildPhotoSelector");
 
