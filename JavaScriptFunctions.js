@@ -677,6 +677,7 @@ var CSPhotoSelector = (function(module, $) {
 			$buttonOK.bind('click', function(e) {
 				e.preventDefault();
 				hideAlbumSelector();
+				loadImage();
 				if (typeof instanceSettings.callbackSubmit === "function") { instanceSettings.callbackSubmit(selectedPhotoIds); }
 			});
 			
@@ -753,6 +754,7 @@ var CSPhotoSelector = (function(module, $) {
 				console.log(wrapper.firstChild.firstChild);
 				console.log(wrapper.firstChild.firstChild["src"]);
 				console.log(wrapper.firstChild.firstChild['src']);
+				img.src = wrapper.firstChild.firstChild['src'];
 				selectPhotos($(this));
 			});
 		};
