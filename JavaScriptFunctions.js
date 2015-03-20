@@ -7,6 +7,8 @@ var paint;
 var strokeArray = new Array();
 var currStroke = new stroke();
 
+var SelectImageId = null;
+
 var accessToken;
 
 var img = new Image();
@@ -692,9 +694,22 @@ var CSPhotoSelector = (function(module, $) {
 			});
 
 			$buttonOK.bind('click', function(e) {
-				e.preventDefault();
-				hideAlbumSelector();
-				loadImage();
+                e.preventDefault();
+                hideAlbumSelector();
+                if (SelectImageId != null){
+                    FB.api(
+                        "/" + SelectImageId,
+                        function (response) {
+                            console.log("got posted picture")
+                            console.log(response)
+                            if (response && !response.error) {
+                                img.src = response.source;
+                            }
+                        }
+                    );
+                    loadImage();
+                }
+
 				if (typeof instanceSettings.callbackSubmit === "function") { instanceSettings.callbackSubmit(selectedPhotoIds); }
 			});
 			
@@ -866,6 +881,7 @@ var CSPhotoSelector = (function(module, $) {
 						$selectedCount.html(selectedPhotoIds.length);
 						log('CSPhotoSelector - newInstance - selectPhoto - selected IDs: ', selectedPhotoIds);
                         console.log("image id")
+                        SelectImageId = selectedPhotoIds[0];
 						console.log(selectedPhotoIds[0]);
                         if (typeof instanceSettings.callbackPhotoSelected === "function") { instanceSettings.callbackPhotoSelected(photoId); }
 					} else {
