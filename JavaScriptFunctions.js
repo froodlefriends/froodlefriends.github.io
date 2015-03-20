@@ -110,6 +110,8 @@ function postPicture(){
 	var c = canvas.toDataURL('image/png');
 	var encodedPng = c.substring(c.indexOf(',')+1,c.length);
 	var decodedPng = Base64Binary.decode(encodedPng);
+    
+    console.log("image data = " + decodedPng);
 
 	PostImageToFacebook(accessToken, 'shareImage.png', 'image/png', decodedPng, '');
 }
