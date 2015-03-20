@@ -114,7 +114,7 @@ function postPicture(){
         "/me/photos",
         "POST",
         {
-            "url": c
+            "source": c
         },
         function (response) {
             console.log("response");
