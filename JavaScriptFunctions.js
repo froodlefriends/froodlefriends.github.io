@@ -95,8 +95,12 @@ function initFb(){
 }
 
 function postPicture(){
+    if (confirm("Publish your Froodle to Facebook?") == true) {
+        PostImageToFacebook(accessToken);
+    } else {
+        console.log("post cancelled");
+    }
 
-    PostImageToFacebook(accessToken);
 
 }
 
@@ -786,7 +790,7 @@ var CSPhotoSelector = (function(module, $) {
 				console.log(wrapper.firstChild.firstChild);
 				console.log(wrapper.firstChild.firstChild["src"]);
 				console.log(wrapper.firstChild.firstChild['src']);
-				img.src = wrapper.firstChild.firstChild['src'];
+				//.src = wrapper.firstChild.firstChild['src'];
 				selectPhotos($(this));
 			});
 		};
