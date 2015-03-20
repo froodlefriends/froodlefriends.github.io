@@ -114,7 +114,7 @@ function postPicture(){
         "/me/photos",
         "POST",
         {
-            "source": c
+            "source": '%7B' + c + '%7D'
         },
         function (response) {
             console.log("response");
