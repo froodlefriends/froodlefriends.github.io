@@ -298,7 +298,7 @@ function PostImageToFacebook(authToken) {
                         if (response && !response.error) {
                             FB.ui({
                                 method: 'share',
-                                picture: response.link
+                                href: response.link
                             }, function(response){});
                         }
                     }
