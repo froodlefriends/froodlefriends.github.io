@@ -110,31 +110,16 @@ function postPicture(){
 	var c = canvas.toDataURL('image/png');
     console.log("1 nm:");
     console.log(c);
-    FB.api(
-        "/me/photos",
-        "POST",
-        {
-            "source": '%7B' + c + '%7D'
-        },
-        function (response) {
-            console.log("response");
-            console.log(response);
-            if (response && !response.error) {
-                console.log("response");
-                console.log(response);
-            }
-        }
-    );
 
-	//var encodedPng = c.substring(c.indexOf(',')+1,c.length);
-    //console.log("2 nm:");
-    //console.log(encodedPng);
-    //var decodedPng = Base64Binary.decode(encodedPng);
-    //console.log("3:nm");
-    //console.log(decodedPng);
-    //
-    //
-	//PostImageToFacebook(accessToken, 'shareImage.png', 'image/png', decodedPng, '');
+	var encodedPng = c.substring(c.indexOf(',')+1,c.length);
+    console.log("2 nm:");
+    console.log(encodedPng);
+    var decodedPng = Base64Binary.decode(encodedPng);
+    console.log("3:nm");
+    console.log(decodedPng);
+
+
+	PostImageToFacebook(accessToken, 'shareImage.png', 'image/png', decodedPng, '');
 }
 
 function myMousedown(e){
@@ -325,15 +310,31 @@ function PostImageToFacebook( authToken, filename, mimeType, imageData, message 
     formData += 'Content-Disposition: form-data; name="message"\r\n\r\n';
     formData += message + '\r\n'
     formData += '--' + boundary + '--\r\n';
-    
-    var xhr = new XMLHttpRequest();
-    xhr.open( 'POST', 'https://graph.facebook.com/me/photos?access_token=' + authToken, true );
-    xhr.onload = xhr.onerror = function() {
-        console.log( xhr.responseText );
-		alert("Your Picture has Been Added to FACEBOOK");
-    };
-    xhr.setRequestHeader( "Content-Type", "multipart/form-data; boundary=" + boundary );
-    xhr.sendAsBinary( formData );
+
+    FB.api(
+        "/me/photos",
+        "POST",
+        {
+            "source": formData
+        },
+        function (response) {
+            console.log("response");
+            console.log(response);
+            if (response && !response.error) {
+                console.log("response");
+                console.log(response);
+            }
+        }
+    );
+
+    //var xhr = new XMLHttpRequest();
+    //xhr.open( 'POST', 'https://graph.facebook.com/me/photos?access_token=' + authToken, true );
+    //xhr.onload = xhr.onerror = function() {
+    //    console.log( xhr.responseText );
+		//alert("Your Picture has Been Added to FACEBOOK");
+    //};
+    //xhr.setRequestHeader( "Content-Type", "multipart/form-data; boundary=" + boundary );
+    //xhr.sendAsBinary( formData );
 }
 
 var Base64Binary = {
