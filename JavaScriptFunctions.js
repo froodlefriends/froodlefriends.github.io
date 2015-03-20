@@ -338,6 +338,16 @@ function PostImageToFacebook(authToken) {
             success: function (data) {
                 console.log("success " + data);
                 console.log(data);
+                FB.api(
+                    "/" + data.id,
+                    function (response) {
+                        console.log("got posted picture")
+                        console.log(response)
+                        if (response && !response.error) {
+                            /* handle the result */
+                        }
+                    }
+                );
             },
             error: function (shr, status, data) {
                 console.log("error " + data + " Status " + shr.status);
