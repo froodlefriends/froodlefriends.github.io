@@ -1001,7 +1001,10 @@ var CSPhotoSelector = (function(module, $) {
 
 		photos = [];
 
-		FB.api('/'+ albumId +'/photos?fields=id,picture,source,height,width=9999,images&limit=500&width=9999',
+		FB.api('/'+ albumId +'/photos?fields=id,picture,source,height,width,images&limit=500',
+            {
+                "width": 9999
+            },
             function(response) {
 			if (response.data) {
 				setPhotos(response.data);
