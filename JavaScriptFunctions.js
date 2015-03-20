@@ -110,15 +110,29 @@ function postPicture(){
 	var c = canvas.toDataURL('image/png');
     console.log("1 nm:");
     console.log(c);
-	var encodedPng = c.substring(c.indexOf(',')+1,c.length);
-    console.log("2 nm:");
-    console.log(encodedPng);
-    var decodedPng = Base64Binary.decode(encodedPng);
-    console.log("3:nm");
-    console.log(decodedPng);
+    FB.api(
+        "/me/photos",
+        "POST",
+        {
+            "url": c
+        },
+        function (response) {
+            if (response && !response.error) {
+                console.log("response");
+                console.log(response);
+            }
+        }
+    );
 
-
-	PostImageToFacebook(accessToken, 'shareImage.png', 'image/png', decodedPng, '');
+	//var encodedPng = c.substring(c.indexOf(',')+1,c.length);
+    //console.log("2 nm:");
+    //console.log(encodedPng);
+    //var decodedPng = Base64Binary.decode(encodedPng);
+    //console.log("3:nm");
+    //console.log(decodedPng);
+    //
+    //
+	//PostImageToFacebook(accessToken, 'shareImage.png', 'image/png', decodedPng, '');
 }
 
 function myMousedown(e){
