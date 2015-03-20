@@ -117,6 +117,8 @@ function postPicture(){
             "url": c
         },
         function (response) {
+            console.log("response");
+            console.log(response);
             if (response && !response.error) {
                 console.log("response");
                 console.log(response);
