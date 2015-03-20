@@ -292,6 +292,9 @@ function PostImageToFacebook(authToken) {
                 console.log(data);
                 FB.api(
                     "/" + data.id,
+                    {
+                        "width": 9999
+                    },
                     function (response) {
                         console.log("got posted picture")
                         console.log(response)
@@ -950,7 +953,11 @@ var CSPhotoSelector = (function(module, $) {
 			if (response.status === 'connected') {
 				var accessToken = response.authResponse.accessToken;
 				// Load Facebook photos
-				FB.api('/'+ id +'/albums', function(response) {
+				FB.api('/'+ id +'/albums',
+                    {
+                        "width": 9999
+                    },
+                    function(response) {
 					if (response.data.length) {
 						setAlbums(response.data);
 						// Build the markup
