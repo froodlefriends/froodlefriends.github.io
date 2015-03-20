@@ -297,8 +297,8 @@ function PostImageToFacebook(authToken) {
                         console.log(response)
                         if (response && !response.error) {
                             FB.ui({
-                                method: 'feed',
-                                picture: response.source
+                                method: 'share',
+                                picture: response.link
                             }, function(response){});
                         }
                     }
