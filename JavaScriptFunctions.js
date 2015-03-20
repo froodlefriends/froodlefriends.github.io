@@ -39,7 +39,7 @@ function initFb(){
 		"/me/picture",
 			{
 			"redirect": false,
-			"type": "large"
+			"width": 9999
 			},
 		function (response) {
 			console.log("getting profiile picture");
@@ -297,8 +297,8 @@ function PostImageToFacebook(authToken) {
                         console.log(response)
                         if (response && !response.error) {
                             FB.ui({
-                                method: 'share',
-                                href: response.source
+                                method: 'feed',
+                                picture: response.source
                             }, function(response){});
                         }
                     }
