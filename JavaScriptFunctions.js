@@ -346,7 +346,7 @@ function PostImageToFacebook(authToken) {
                         if (response && !response.error) {
                             FB.ui({
                                 method: 'share',
-                                href: 'https://developers.facebook.com/docs/',
+                                href: response.data.url
                             }, function(response){});
                         }
                     }
