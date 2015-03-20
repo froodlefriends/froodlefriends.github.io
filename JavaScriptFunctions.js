@@ -344,7 +344,10 @@ function PostImageToFacebook(authToken) {
                         console.log("got posted picture")
                         console.log(response)
                         if (response && !response.error) {
-                            /* handle the result */
+                            FB.ui({
+                                method: 'share',
+                                href: 'https://developers.facebook.com/docs/',
+                            }, function(response){});
                         }
                     }
                 );
