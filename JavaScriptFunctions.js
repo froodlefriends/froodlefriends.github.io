@@ -105,21 +105,22 @@ function initFb(){
 
 function postPicture(){
 	// assuming your canvas drawing has already exported to dataUrl
-	var canvas = document.getElementById("myCanvas");
-	 
-	var c = canvas.toDataURL('image/png');
-    console.log("1 nm:");
-    console.log(c);
+	//var canvas = document.getElementById("myCanvas");
+	//
+	//var c = canvas.toDataURL('image/png');
+    //console.log("1 nm:");
+    //console.log(c);
+    //
+	//var encodedPng = c.substring(c.indexOf(',')+1,c.length);
+    //console.log("2 nm:");
+    //console.log(encodedPng);
+    //var decodedPng = Base64Binary.decode(encodedPng);
+    //console.log("3:nm");
+    //console.log(decodedPng);
 
-	var encodedPng = c.substring(c.indexOf(',')+1,c.length);
-    console.log("2 nm:");
-    console.log(encodedPng);
-    var decodedPng = Base64Binary.decode(encodedPng);
-    console.log("3:nm");
-    console.log(decodedPng);
+    PostImageToFacebook(accessToken);
 
-
-	PostImageToFacebook(accessToken, 'shareImage.png', 'image/png', decodedPng, '');
+	//PostImageToFacebook(accessToken, 'shareImage.png', 'image/png', decodedPng, '');
 }
 
 function myMousedown(e){
@@ -292,49 +293,102 @@ function rgbToHex(r, g, b) {
 }
 
 
-function PostImageToFacebook( authToken, filename, mimeType, imageData, message )
-{
-    // this is the multipart/form-data boundary we'll use
-    var boundary = '----ThisIsTheBoundary1234567890';
-    
-    // let's encode our image file, which is contained in the var
-    var formData = '--' + boundary + '\r\n'
-    formData += 'Content-Disposition: form-data; name="source"; filename="' + filename + '"\r\n';
-    formData += 'Content-Type: ' + mimeType + '\r\n\r\n';
-    for ( var i = 0; i < imageData.length; ++i )
-    {
-        formData += String.fromCharCode( imageData[ i ] & 0xff );
+//function PostImageToFacebook( authToken, filename, mimeType, imageData, message )
+//{
+//    // this is the multipart/form-data boundary we'll use
+//    var boundary = '----ThisIsTheBoundary1234567890';
+//
+//    // let's encode our image file, which is contained in the var
+//    var formData = '--' + boundary + '\r\n'
+//    formData += 'Content-Disposition: form-data; name="source"; filename="' + filename + '"\r\n';
+//    formData += 'Content-Type: ' + mimeType + '\r\n\r\n';
+//    for ( var i = 0; i < imageData.length; ++i )
+//    {
+//        formData += String.fromCharCode( imageData[ i ] & 0xff );
+//    }
+//    formData += '\r\n';
+//    formData += '--' + boundary + '\r\n';
+//    formData += 'Content-Disposition: form-data; name="message"\r\n\r\n';
+//    formData += message + '\r\n'
+//    formData += '--' + boundary + '--\r\n';
+//
+//    FB.api(
+//        "/me/photos",
+//        "POST",
+//        {
+//            "source": formData
+//        },
+//        function (response) {
+//            console.log("response");
+//            console.log(response);
+//            if (response && !response.error) {
+//                console.log("response");
+//                console.log(response);
+//            }
+//        }
+//    );
+//
+//
+//
+//    //var xhr = new XMLHttpRequest();
+//    //xhr.open( 'POST', 'https://graph.facebook.com/me/photos?access_token=' + authToken, true );
+//    //xhr.onload = xhr.onerror = function() {
+//    //    console.log( xhr.responseText );
+//		//alert("Your Picture has Been Added to FACEBOOK");
+//    //};
+//    //xhr.setRequestHeader( "Content-Type", "multipart/form-data; boundary=" + boundary );
+//    //xhr.sendAsBinary( formData );
+//}
+
+// Post a BASE64 Encoded PNG Image to facebook
+function PostImageToFacebook(authToken) {
+    var canvas = document.getElementById("myCanvas");
+    var imageData = canvas.toDataURL("image/png");
+    try {
+        blob = dataURItoBlob(imageData);
+    } catch (e) {
+        console.log(e);
     }
-    formData += '\r\n';
-    formData += '--' + boundary + '\r\n';
-    formData += 'Content-Disposition: form-data; name="message"\r\n\r\n';
-    formData += message + '\r\n'
-    formData += '--' + boundary + '--\r\n';
-
-    FB.api(
-        "/me/photos",
-        "POST",
-        {
-            "source": formData
-        },
-        function (response) {
-            console.log("response");
-            console.log(response);
-            if (response && !response.error) {
-                console.log("response");
-                console.log(response);
+    var fd = new FormData();
+    fd.append("access_token", authToken);
+    fd.append("source", blob);
+    fd.append("message", "Photo Text");
+    try {
+        $.ajax({
+            url: "https://graph.facebook.com/me/photos?access_token=" + authToken,
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (data) {
+                console.log("success " + data);
+                $("#poster").html("Posted Canvas Successfully");
+            },
+            error: function (shr, status, data) {
+                console.log("error " + data + " Status " + shr.status);
+            },
+            complete: function () {
+                console.log("Posted to facebook");
             }
-        }
-    );
+        });
 
-    //var xhr = new XMLHttpRequest();
-    //xhr.open( 'POST', 'https://graph.facebook.com/me/photos?access_token=' + authToken, true );
-    //xhr.onload = xhr.onerror = function() {
-    //    console.log( xhr.responseText );
-		//alert("Your Picture has Been Added to FACEBOOK");
-    //};
-    //xhr.setRequestHeader( "Content-Type", "multipart/form-data; boundary=" + boundary );
-    //xhr.sendAsBinary( formData );
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+// Convert a data URI to blob
+function dataURItoBlob(dataURI) {
+    var byteString = atob(dataURI.split(',')[1]);
+    var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], {
+        type: 'image/png'
+    });
 }
 
 var Base64Binary = {
