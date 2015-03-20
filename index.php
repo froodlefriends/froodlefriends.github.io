@@ -87,7 +87,6 @@ width=1000 max-height=700>
 
 <script type="text/javascript">
 
-document.ready = init();
 document.ready = setColour();
 document.ready = resizeCanvas();
 //document.ready = resizeImage();
