@@ -21,17 +21,6 @@ function hello(){
 	alert("hello world");
 }
 
-function init(){
-	if ( XMLHttpRequest.prototype.sendAsBinary === undefined ) {
-    XMLHttpRequest.prototype.sendAsBinary = function(string) {
-        var bytes = Array.prototype.map.call(string, function(c) {
-            return c.charCodeAt(0) & 0xff;
-        });
-        this.send(new Uint8Array(bytes).buffer);
-    };
-}
-	
-}
 
 function initFb(){
 	window.fbAsyncInit = function() {
@@ -104,23 +93,9 @@ function initFb(){
 }
 
 function postPicture(){
-	// assuming your canvas drawing has already exported to dataUrl
-	//var canvas = document.getElementById("myCanvas");
-	//
-	//var c = canvas.toDataURL('image/png');
-    //console.log("1 nm:");
-    //console.log(c);
-    //
-	//var encodedPng = c.substring(c.indexOf(',')+1,c.length);
-    //console.log("2 nm:");
-    //console.log(encodedPng);
-    //var decodedPng = Base64Binary.decode(encodedPng);
-    //console.log("3:nm");
-    //console.log(decodedPng);
 
     PostImageToFacebook(accessToken);
 
-	//PostImageToFacebook(accessToken, 'shareImage.png', 'image/png', decodedPng, '');
 }
 
 function myMousedown(e){
@@ -352,7 +327,6 @@ function PostImageToFacebook(authToken) {
     var fd = new FormData();
     fd.append("access_token", authToken);
     fd.append("source", blob);
-    fd.append("message", "Photo Text");
     try {
         $.ajax({
             url: "https://graph.facebook.com/me/photos?access_token=" + authToken,
@@ -363,7 +337,7 @@ function PostImageToFacebook(authToken) {
             cache: false,
             success: function (data) {
                 console.log("success " + data);
-                $("#poster").html("Posted Canvas Successfully");
+                console.log(data);
             },
             error: function (shr, status, data) {
                 console.log("error " + data + " Status " + shr.status);
