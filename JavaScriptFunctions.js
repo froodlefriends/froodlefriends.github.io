@@ -764,7 +764,7 @@ var CSPhotoSelector = (function(module, $) {
 			$photosContainer.children().bind('click', function(e) {
 				e.preventDefault();
 				console.log('testing!!!!!!!!!!!!!!!!!');
-				console.log(this);
+				console.log(this["data-id"]);
 				var wrapper = document.createElement('span');
 				//var s = this.innerHTML;
 				wrapper.innerHTML = String(this.innerHTML);
@@ -865,7 +865,9 @@ var CSPhotoSelector = (function(module, $) {
 						$photo.addClass(settings.albumSelectedClass);
 						$selectedCount.html(selectedPhotoIds.length);
 						log('CSPhotoSelector - newInstance - selectPhoto - selected IDs: ', selectedPhotoIds);
-						if (typeof instanceSettings.callbackPhotoSelected === "function") { instanceSettings.callbackPhotoSelected(photoId); }
+                        console.log("image id")
+						console.log(selectedPhotoIds[0]);
+                        if (typeof instanceSettings.callbackPhotoSelected === "function") { instanceSettings.callbackPhotoSelected(photoId); }
 					} else {
 						log('CSPhotoSelector - newInstance - selectPhoto - ID already stored');
 					}
