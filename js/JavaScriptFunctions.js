@@ -15,7 +15,8 @@ var accessToken;
 var img = new Image();
 img .setAttribute('crossOrigin', 'anonymous');
 img.src = "/images/w.png";
-
+var img_width = 0;
+var img_height = 0;
 //colour stuff
 var currColour;
 
@@ -261,6 +262,13 @@ function loadFromURL() {
 
 function loadImage() {
     var c = document.getElementById("myCanvas");
+    if (img_width != 0) {
+        c.width = img_width;
+    }
+    if (img_height != 0) {
+        c.height = img_height;
+    }
+}
     var ctx = c.getContext("2d");
     ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
 }
@@ -761,6 +769,8 @@ var CSPhotoSelector = (function(module, $) {
                             console.log(response)
                             if (response && !response.error) {
                                 img.src = response.source;
+                                img_width = response.width;
+                                img_height = response.height;
                             }
                         }
                     );

@@ -78,7 +78,7 @@ body {
   float:left;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  width: 132px;
+  width: unset;
 }
 
 .photo_action_box, .photo_upload_box{
