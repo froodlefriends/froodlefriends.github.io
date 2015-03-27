@@ -106,8 +106,31 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
     </div>
   </div>
 
+    <div id="sign_up">
+        <div>
+            <div class="post_header">
+                Save your Masterpiece to Facebook
+            </div>
+            <div class="post_content">
+                <div class="post_image_wrapper">
+                    <img id="lightBoxImage" src="images/w.png" class="post_preview"/>
+                </div>
+                <div class="post_center">
+                    <div class="froodle_button smaller_button" onclick="PostImageToFacebook(accessToken)">
+                        <span class="text">Save</span>
+                    </div>
+                    <div class="froodle_button smaller_button cancel_button" onclick="closeBox()">
+                        <span class="text">Cancel</span>
+                    </div>
+                    <div class="clear">&#160;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
   <canvas id="myCanvas" width=3000px max-height="100%"></canvas>
 
+  
   <script type="text/javascript" src="/js/vendor/jquery-1.7.1.min.js"></script>
   <script type="text/javascript" src="/js/vendor/raphael-min.js"></script>
   <script type="text/javascript" src="/js/vendor/qunit.min.js"></script>
