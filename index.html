@@ -114,10 +114,11 @@ document.ready = initFb();
 document.getElementById("image").onload = loadImage;	
 
 //set up mouse event listeners
-document.getElementById('myCanvas').onmousedown = myMousedown;
-document.getElementById('myCanvas').onmouseup = myMouseup;
+document.onmousedown = myMousedown;
+document.onmouseup = myMouseup;
 document.getElementById('myCanvas').onmousemove = myMousemove;
 document.getElementById('myCanvas').onmouseleave = myMouseleave;
+document.getElementById('myCanvas').onmouseenter = myMouseenter;
 
 </script>
 

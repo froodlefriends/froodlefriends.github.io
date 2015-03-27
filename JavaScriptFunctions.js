@@ -100,8 +100,6 @@ function postPicture(){
     } else {
         console.log("post cancelled");
     }
-
-
 }
 
 function myMousedown(e){
@@ -134,7 +132,13 @@ function myMouseup(){
 }
 
 function myMouseleave(){
-	  paint = false;
+	  //paint = false;
+	  strokeArray.push(currStroke);
+	  currStroke = new stroke();
+}
+
+function myMouseenter(){
+
 }
 
 function print(array) {
@@ -220,7 +224,9 @@ function loadFromURL() {
 function loadImage() {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
+    //var image1 = document.getElementById("image");
     ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
+    resetAll();
 }
 
 function resetAll(){
