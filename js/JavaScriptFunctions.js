@@ -188,7 +188,7 @@ function drawAll() {
 	context = document.getElementById('myCanvas').getContext("2d");
 	context.strokeStyle = "#df4b26";
 	context.lineJoin = "round";
-	context.lineWidth = 5; 
+	context.lineWidth = 1; 
 	  
 	console.log('stroke array before drawAll: ' + strokeArray.length)
 	  for(var j=0; j<strokeArray.length; j++){
@@ -199,6 +199,7 @@ function drawAll() {
 
 		  for(var i=0; i < strokeArray[j].clickX.length; i++) {		
 		    context.beginPath();
+		    context.lineWidth = strokeArray[j].lineWidth[i];
 		    if(strokeArray[j].clickDrag[i] && i){
 		      context.moveTo(strokeArray[j].clickX[i-1], strokeArray[j].clickY[i-1]);
 		     }else{
@@ -207,7 +208,7 @@ function drawAll() {
 		     context.lineTo(strokeArray[j].clickX[i], strokeArray[j].clickY[i]);
 		     context.closePath();
 		     context.strokeStyle = strokeArray[j].colour[i];
-		     context.lineWidth = strokeArray[j].lineWidth[i];
+		     //context.lineWidth = strokeArray[j].lineWidth[i];
 		     context.stroke();
 		  }
 	  }
@@ -218,7 +219,7 @@ function redraw(){
 	context = document.getElementById('myCanvas').getContext("2d");
 	context.strokeStyle = "#df4b26";
 	context.lineJoin = "round";
-	context.lineWidth = 5;
+	context.lineWidth = 1;
 
 	  if(currStroke.length == 1){
 	  	context.fillRect(currStroke.clickX[0], currStroke.clickY[0], currStroke.clickX[0]+1, currStroke.clickY[0]+1);
@@ -226,6 +227,7 @@ function redraw(){
 				
 	for(var i=0; i < currStroke.clickX.length; i++) {		
 	  context.beginPath();
+	  context.lineWidth = currStroke.lineWidth[i];
 	  if(currStroke.clickDrag[i] && i){
 	    context.moveTo(currStroke.clickX[i-1], currStroke.clickY[i-1]);
 	   }else{
