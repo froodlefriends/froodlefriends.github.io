@@ -184,7 +184,7 @@ function undo() {
 //draws all strokes
 function drawAll() {
 	context = document.getElementById('myCanvas').getContext("2d");
-	context.strokeStyle = "#df4b26";
+	context.strokeStyle = "#ffffff";
 	context.lineJoin = "round";
 	//context.lineWidth = 100; 
 	  

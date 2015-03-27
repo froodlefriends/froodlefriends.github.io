@@ -26,26 +26,26 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
 
   <div>
     <div class="pane big_pane">
-      <div class="froodle_button" id="select">
+      <div class="shadow froodle_button" id="select">
         <span class="text">Select From Your Photos</span>
       </div>
       <div class="photo_upload_box">
-        <input type="text" id="urlToUpload" placeholder="Enter photo URL"></input>
+        <input type="text" id="urlToUpload" class="shadow" placeholder="Enter photo URL"></input>
         <div class="froodle_button left_button" onclick="loadFromURL()">
           <span class="text">Upload from URL</span>
         </div>
       </div>
     </div>
     <div class="pane big_pane">
-      <div class="froodle_button" onclick="post()">
+      <div class="shadow froodle_button" onclick="post()">
         <span class="text">Save To Facebook</span>
       </div>
 
       <div class="photo_action_box">
-        <div class="froodle_button smaller_button" onclick="resetAll()">
+        <div class="shadow froodle_button smaller_button" onclick="resetAll()">
           <span class="text">Reset</span>
         </div>
-        <div class="froodle_button smaller_button" onclick="undo()">
+        <div class="shadow froodle_button smaller_button" onclick="undo()">
           <span class="text">Undo</span>
         </div>
         <div class="clear">&#160;</div>
