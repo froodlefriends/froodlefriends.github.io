@@ -27,26 +27,26 @@ width=1000 max-height=700>
 
   <div>
     <div class="pane big_pane">
-      <div class="froodle_button" on-click="IntentLogin()">
+      <div class="froodle_button" onclick="CSPhotoSelector()">
         <span class="text">Select From Your Photos</span>
       </div>
       <div class="photo_upload_box">
         <input type="text" id="urlToUpload" placeholder="Enter photo URL"></input>
-        <div class="froodle_button left_button" on-click="loadFromURL()">
+        <div class="froodle_button left_button" onclick="loadFromURL()">
           <span class="text">Upload from URL</span>
         </div>
       </div>
     </div>
     <div class="pane big_pane">
-      <div class="froodle_button" on-click="postPicture()">
+      <div class="froodle_button" onclick="postPicture()">
         <span class="text">Save To Facebook</span>
       </div>
 
       <div class="photo_action_box">
-        <div class="froodle_button smaller_button" on-click="resetAll()">
+        <div class="froodle_button smaller_button" onclick="resetAll()">
           <span class="text">Reset</span>
         </div>
-        <div class="froodle_button smaller_button" on-click="undo()">
+        <div class="froodle_button smaller_button" onclick="undo()">
           <span class="text">Undo</span>
         </div>
         <div class="clear">&#160;</div>
