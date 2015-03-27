@@ -20,6 +20,8 @@ body {
 }
 .item_wrapper{
   width:100%;
+  display: block;
+  text-align: center;
 }
 #myCanvas{
   margin:0 auto;
