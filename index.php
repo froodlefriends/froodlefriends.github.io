@@ -37,7 +37,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
       </div>
     </div>
     <div class="pane big_pane">
-      <div class="froodle_button" onclick="postPicture()">
+      <div class="froodle_button" onclick="post()">
         <span class="text">Save To Facebook</span>
       </div>
 
