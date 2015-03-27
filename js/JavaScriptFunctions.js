@@ -764,16 +764,16 @@ var CSPhotoSelector = (function(module, $) {
                     FB.api(
                         "/" + SelectImageId,
                         function (response) {
-                            console.log("got posted picture")
+                            console.log("got chosen picture")
                             console.log(response)
                             if (response && !response.error) {
                                 img.src = response.source;
                                 img_width = response.width;
                                 img_height = response.height;
+                                loadImage();
                             }
                         }
                     );
-                    loadImage();
                 }
 
 				if (typeof instanceSettings.callbackSubmit === "function") { instanceSettings.callbackSubmit(selectedPhotoIds); }
