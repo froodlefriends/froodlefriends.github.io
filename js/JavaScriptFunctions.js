@@ -236,12 +236,12 @@ function loadImage() {
 //reset all strokes?
 function resetAll(){
 	currStroke = new Array();
-	strokeArray() = new Array();
-	console.log('stroke array before set to 0: ' + strokeArray.length)
+	strokeArray = new Array();
 	strokeArray.length = 0;
-	console.log('stroke array after set to 0: ' + strokeArray.length)
 	currStroke.length = 0;
 	reset();
+	loadImage();
+
 }
 
 //reset just the current stroke?
