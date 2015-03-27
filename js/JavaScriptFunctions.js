@@ -120,7 +120,7 @@ function myMousedown(e){
 	  currStroke.clickY.push(e.pageY - this.offsetTop);
 	  currStroke.clickDrag.push(true);
 	  currStroke.colour.push(currColour);
-	  currStroke.lineWidth.push(100);
+	  currStroke.lineWidth.push(strokeWidth);
 	  redraw();
 }
 
@@ -130,7 +130,7 @@ function myMousemove(e){
 		currStroke.clickY.push(e.pageY - this.offsetTop);
 		currStroke.clickDrag.push(true);
 		currStroke.colour.push(currColour);
-		currStroke.lineWidth.push(100);
+		currStroke.lineWidth.push(strokeWidth);
 	    redraw();
 	  }
 }
@@ -294,6 +294,7 @@ function setColour(){
 
 function setLineWidth(){
 	strokeWidth = document.getElementById("lineWidth").value;
+	console.log("stroke width set to " + strokeWidth);
 }
 
 function resizeCanvas() {
