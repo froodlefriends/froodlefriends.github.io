@@ -93,5 +93,45 @@ body {
   margin: 0px 10px;
 }
 
+#sign_up{
+    display:none;
+    padding: 10px;
+    margin: 0 auto;
+    position: relative;
+    background: rgba(82, 82, 82, 0.7);
+    overflow: hidden;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.post_content {
+    padding: 10px;
+    background-color: #fff;
+}
+.post_header{
+    padding: 7px 10px;
+    background: #6D84B4;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+.post_image_wrapper{
+    width:100%;
+}
+.post_preview{max-height: 400px; max-width: 400px;}
+
+.cancel_button {
+    background-color: #404040;
+}
+.post_center{
+    margin:0 auto;
+    display: table;
+}
+
+.cancel_button:hover {
+    background-color: #303030;
+}
+
 
 .clear { clear: both; display: block; float: none !important; font-size: 0; height: 0; line-height: 0; text-indent: -4000px; }

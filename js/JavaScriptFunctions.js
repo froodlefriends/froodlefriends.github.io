@@ -101,7 +101,20 @@ function postPicture(){
         console.log("post cancelled");
     }
 }
-
+function post(){
+    $('#sign_up').lightbox_me({
+        centered: true,
+        onLoad: function() {
+            console.log("opening image")
+            $('#lightBoxImage').attr('src',img.src );
+            $('#sign_up').trigger('reposition');
+        }
+    });
+}
+function closeBox(){
+    console.log("closing");
+    $('#sign_up').trigger('close');
+}
 function myMousedown(e){
 	  paint = true;
 	  currStroke.clickX.push(e.pageX - this.offsetLeft);
