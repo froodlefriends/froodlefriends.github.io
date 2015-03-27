@@ -3,7 +3,7 @@ var clickX = new Array();
 var clickY = new Array();
 var clickDrag = new Array();
 var clickColor = new Array();
-var paint;
+var paint = false;
 var strokeArray = new Array();
 var currStroke = new stroke();
 
@@ -103,9 +103,6 @@ function postPicture(){
 }
 
 function myMousedown(e){
-	  var mouseX = e.pageX - this.offsetLeft;
-	  var mouseY = e.pageY - this.offsetTop;
-	  
 	  paint = true;
 	  currStroke.clickX.push(e.pageX - this.offsetLeft);
 	  currStroke.clickY.push(e.pageY - this.offsetTop);
@@ -139,6 +136,14 @@ function myMouseleave(){
 
 function myMouseenter(){
 
+}
+
+function globalMousedown(){
+	paint = true;
+}
+
+function globalMouseup(){
+	paint = false;
 }
 
 function print(array) {
@@ -243,7 +248,7 @@ function reset(){
 	clickY = new Array();
 	clickDrag = new Array();
 	clickColor = new Array();
-	loadImage();
+	//loadImage();
 }
 
 function setColour(){
