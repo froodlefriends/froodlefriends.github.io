@@ -155,7 +155,7 @@ function print(array) {
 function undo() {
 	strokeArray.pop();
 	console.log("pop!");
-	//reset();
+	reset();
 	drawAll();
 }
 
@@ -231,23 +231,29 @@ function loadImage() {
     var ctx = c.getContext("2d");
     //var image1 = document.getElementById("image");
     ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
-    resetAll();
+    //resetAll();
 }
 
+//reset all strokes?
 function resetAll(){
 	console.log('stroke array before set to 0: ' + strokeArray.length)
 	strokeArray.length = 0;
 	console.log('stroke array after set to 0: ' + strokeArray.length)
 	currStroke.length = 0;
+	currStroke = new Array();
+	strokeArray() = new Array();
 	reset();
 }
 
+//reset just the current stroke?
 function reset(){
 	context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
 	clickX = new Array();
 	clickY = new Array();
 	clickDrag = new Array();
 	clickColor = new Array();
+	//currStroke = new Array();
+	//strokeArray = new Array();
 	//loadImage();
 }
 
