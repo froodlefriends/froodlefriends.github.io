@@ -120,7 +120,7 @@ function myMousedown(e){
 	  currStroke.clickY.push(e.pageY - this.offsetTop);
 	  currStroke.clickDrag.push(true);
 	  currStroke.colour.push(currColour);
-	  currStroke.lineWidth.push(strokeWidth);
+	  currStroke.lineWidth.push(100);
 	  redraw();
 }
 
@@ -130,7 +130,7 @@ function myMousemove(e){
 		currStroke.clickY.push(e.pageY - this.offsetTop);
 		currStroke.clickDrag.push(true);
 		currStroke.colour.push(currColour);
-		currStroke.lineWidth.push(strokeWidth);
+		currStroke.lineWidth.push(100);
 	    redraw();
 	  }
 }
@@ -206,7 +206,7 @@ function drawAll() {
 		     context.lineTo(strokeArray[j].clickX[i], strokeArray[j].clickY[i]);
 		     context.closePath();
 		     context.strokeStyle = strokeArray[j].colour[i];
-		     //context.lineWidth = strokeArray[j].lineWidth[i];
+		     context.lineWidth = strokeArray[j].lineWidth[i];
 		     context.stroke();
 		  }
 	  }
@@ -234,7 +234,7 @@ function redraw(){
 	   context.lineTo(currStroke.clickX[i], currStroke.clickY[i]);
 	   context.closePath();
 	   context.strokeStyle = currStroke.colour[i];
-	   //context.lineWidth = currStroke.lineWidth[i];
+	   context.lineWidth = currStroke.lineWidth[i];
 	   context.stroke();
 	  }
 }
