@@ -292,7 +292,7 @@ function setColour(){
 }
 
 function setLineWidth(){
-	strokeWidth = document,getElementById("lineWidth").value;
+	strokeWidth = document.getElementById("lineWidth").value;
 }
 
 function resizeCanvas() {
