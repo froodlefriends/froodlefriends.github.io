@@ -32,12 +32,12 @@ function initFb(){
 		  xfbml      : true,
 		  version    : 'v2.2'
 		});
-	
+
 	function onLogin(response) {
 	  if (response.status == 'connected') {
-		
+
 		accessToken = response.authResponse.accessToken
-		
+
 		FB.api(
 		"/me/picture",
 			{
@@ -51,7 +51,7 @@ function initFb(){
 				console.log("got profiile picture");
 				//var parseResponse = JSON.parse(response);
 				console.log(response);
-				
+
 				img.onload = function(){
 					var c = document.getElementById("myCanvas");
 					var ctx = c.getContext("2d");
@@ -60,7 +60,7 @@ function initFb(){
 				};
 				console.log('prof pic is '+response.data.url);
 				img.src = response.data.url;
-				
+
 			}
 			else{
 				console.log("error getting picture");
@@ -206,7 +206,7 @@ function drawAll() {
 		     context.lineTo(strokeArray[j].clickX[i], strokeArray[j].clickY[i]);
 		     context.closePath();
 		     context.strokeStyle = strokeArray[j].colour[i];
-		     context.lineWidth = strokeArray[j].lineWidth[i];
+		     //context.lineWidth = strokeArray[j].lineWidth[i];
 		     context.stroke();
 		  }
 	  }
@@ -215,15 +215,15 @@ function drawAll() {
 //draws current stroke
 function redraw(){
 	context = document.getElementById('myCanvas').getContext("2d");
-	context.strokeStyle = "#df4b26";
+	context.strokeStyle = "#ffffff";
 	context.lineJoin = "round";
 	//context.lineWidth = 100;
 
 	  if(currStroke.length == 1){
 	  	context.fillRect(currStroke.clickX[0], currStroke.clickY[0], currStroke.clickX[0]+1, currStroke.clickY[0]+1);
 	  }
-				
-	for(var i=0; i < currStroke.clickX.length; i++) {		
+
+	for(var i=0; i < currStroke.clickX.length; i++) {
 	  context.beginPath();
 	  context.lineWidth = currStroke.lineWidth[i];
 	  if(currStroke.clickDrag[i] && i){
@@ -234,7 +234,7 @@ function redraw(){
 	   context.lineTo(currStroke.clickX[i], currStroke.clickY[i]);
 	   context.closePath();
 	   context.strokeStyle = currStroke.colour[i];
-	   context.lineWidth = currStroke.lineWidth[i];
+	   //context.lineWidth = currStroke.lineWidth[i];
 	   context.stroke();
 	  }
 }
@@ -293,9 +293,7 @@ function setColour(){
 }
 
 function setLineWidth(){
-	console.log("here");
 	strokeWidth = document.getElementById("lineWidth").value;
-	console.log("stroke width set to " + strokeWidth);
 }
 
 function resizeCanvas() {
