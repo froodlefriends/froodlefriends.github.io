@@ -59,7 +59,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
           <input hidden class="color" id="colour" type='text' onchange=setColour()/>
         </div>
         <div>
-          <input type="range" id="lineWidth" value="5" max="10" oninput="setLineWidth()"/>
+          <input type="range" id="lineWidth" value="5" max="100" oninput="setLineWidth()"/>
         </div>
       </div>
     </div>
