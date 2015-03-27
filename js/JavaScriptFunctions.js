@@ -156,6 +156,7 @@ function undo() {
 	strokeArray.pop();
 	console.log("pop!");
 	reset();
+	loadImage();
 	drawAll();
 }
 
@@ -229,19 +230,17 @@ function loadFromURL() {
 function loadImage() {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
-    //var image1 = document.getElementById("image");
     ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
-    //resetAll();
 }
 
 //reset all strokes?
 function resetAll(){
+	currStroke = new Array();
+	strokeArray() = new Array();
 	console.log('stroke array before set to 0: ' + strokeArray.length)
 	strokeArray.length = 0;
 	console.log('stroke array after set to 0: ' + strokeArray.length)
 	currStroke.length = 0;
-	currStroke = new Array();
-	strokeArray() = new Array();
 	reset();
 }
 
