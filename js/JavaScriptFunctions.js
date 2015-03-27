@@ -13,7 +13,7 @@ var accessToken;
 
 var img = new Image();
 img .setAttribute('crossOrigin', 'anonymous');
-img.src = "https://scontent-ams.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10629703_837270849663201_5201753390617732430_n.jpg?oh=ccc2a462bf92f548c0146b02a7fa690b&oe=558A7A4E";
+img.src = "/images/w.png";
 
 //colour stuff
 var currColour = "#9b9b9b";
@@ -150,7 +150,7 @@ function print(array) {
 function undo() {
 	strokeArray.pop();
 	console.log("pop!");
-	reset();
+	//reset();
 	drawAll();
 }
 

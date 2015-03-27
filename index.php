@@ -3,8 +3,8 @@
 xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="main.css"></link>
-  <link rel="stylesheet" href="csphotoselector.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css"></link>
+  <link rel="stylesheet" href="css/csphotoselector.css">
 
   <title>Canvas Demo</title>
 
@@ -22,8 +22,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
   <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png">
 </head>
 <body>
-  <img hidden id="image" src="https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10461476_10152506437588124_6370622596565830669_n.jpg?oh=119f18951cd74eea45391ff1d37c5fd9&oe=5578DA0E&__gda__=1434538008_6a216c2d64b02a15cb3e597aabe0a1b9"
-width=1000 max-height=700>
+  <img hidden id="image" src="images/w.png" width=1000 max-height=700>
 
   <div>
     <div class="pane big_pane">
@@ -109,20 +108,14 @@ width=1000 max-height=700>
 
   <canvas id="myCanvas" width=3000px max-height="100%"></canvas>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script src="jquery-1.7.1.min.js"></script>
+  <script src="vendor/jquery-1.7.1.min.js"></script>
+  <script src="vendor/raphael-min.js" type="text/javascript"></script>
+  <script src="vendor/qunit.min.js" type="text/javascript"></script>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js" type="text/javascript"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/qunit/1.14.0/qunit.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/JavaScriptFunctions.js"></script>
+  <script type="text/javascript" src="js/FurtherJSFunctions.js"></script>
+  <script type="text/javascript" src="js/colorwheel.js" ></script>
 
-  <script type="text/javascript" src="JavaScriptFunctions.js"></script>
-
-  <script type="text/javascript" src="jscolor/jscolor.js"></script>
-
-  <script type="text/javascript" src="colorwheel.js" ></script>
-
-  <script type="text/javascript" src="csphotoselector.js"></script>
-  <script type="text/javascript" src="FurtherJSFunctions.js"></script>
 
   <script type="text/javascript">
   function run_tests(){
