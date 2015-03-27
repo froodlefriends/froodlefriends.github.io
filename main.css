@@ -14,8 +14,84 @@ body {
     text-rendering: optimizeLegibility;
     padding: 0;
     overflow-x: hidden;
-    background: url(images/stone.jpg) no-repeat center center fixed; 
-    background-color: #333; 
+    background-color: #333;
     background-size: 100% 100%;
     background-size: cover;
 }
+
+.froodle_button {
+  height: 40px;
+  line-height: 40px;
+  padding: 0px 10px;
+  background-size: 24px 24px;
+  border-radius: 7px;
+  background-clip: padding-box;
+  background-color: #3A5898;
+  background-position: 19px center;
+  background-repeat: no-repeat;
+  color: #FFF;
+  margin: 0 auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 21px;
+  position: relative;
+  text-align: center;
+  transition: background-color 0.15s linear 0s;
+  width: 260px;
+  width: 285px;
+}
+.froodle_button:hover {
+   background-color: #2F4A84;
+}
+
+.froodle_button .text {
+  margin: 10px 0px;
+  display: inline-block;
+}
+
+.pane{
+  height:150px;
+  float:left;
+}
+
+.big_pane{
+  width:40%;
+  margin-top:20px;
+}
+
+.small_pane{
+  width:20%;
+
+}
+
+#urlToUpload{
+  float: left;
+  border-radius: 0px;
+  border: medium none;
+  height: 38px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  width: 150px;
+}
+
+.left_button{
+  float:left;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 132px;
+}
+
+.photo_action_box, .photo_upload_box{
+  margin:20px auto 0;
+  display: table;
+}
+
+
+.smaller_button{
+  width:60px;
+  float:left;
+  margin: 0px 10px;
+}
+
+
+.clear { clear: both; display: block; float: none !important; font-size: 0; height: 0; line-height: 0; text-indent: -4000px; }
