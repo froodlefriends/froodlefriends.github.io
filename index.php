@@ -138,6 +138,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
   <script type="text/javascript" src="/js/JavaScriptFunctions.js"></script>
   <script type="text/javascript" src="/js/FurtherJSFunctions.js"></script>
   <script type="text/javascript" src="/js/colorwheel.js" ></script>
+  <script type="text/javascript"src = "js/jquery.lightbox_me.js"></script>
 
 
   <script type="text/javascript">
