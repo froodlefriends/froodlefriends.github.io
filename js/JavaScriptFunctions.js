@@ -262,8 +262,8 @@ function reset(){
 }
 
 function setColour(){
-	 currColour = '#' + document.getElementById("colour").color;
-	 //console.log("Colour" + currColour);
+	 currColour = '#' + document.getElementById("colour").background;
+	 console.log("Colour" + currColour);
 	 //console.log("Value" + document.getElementById("colour").value);
 }
 
