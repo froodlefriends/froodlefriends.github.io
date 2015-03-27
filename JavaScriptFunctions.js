@@ -285,6 +285,7 @@ function PostImageToFacebook(authToken) {
     var fd = new FormData();
     fd.append("access_token", authToken);
     fd.append("source", blob);
+    fd.append("no_story", 1);
     try {
         $.ajax({
             url: "https://graph.facebook.com/me/photos?access_token=" + authToken,
@@ -312,6 +313,7 @@ function PostImageToFacebook(authToken) {
             },
             error: function (shr, status, data) {
                 console.log("error " + data + " Status " + shr.status);
+                alert("Post Failed")
             },
             complete: function () {
                 console.log("Posted to facebook");
