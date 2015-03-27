@@ -58,6 +58,9 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
         <div class='colorwheel' onclick="setColour()"/>
           <input hidden class="color" id="colour" type='text' onchange=setColour()/>
         </div>
+        <div class="froodle_button smaller_button">
+          <input type="range" id="lineWidth" value=5 max=10 onchange=setLineWidth()/>
+        </div>
       </div>
     </div>
 

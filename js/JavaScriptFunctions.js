@@ -6,6 +6,7 @@ var clickColor = new Array();
 var paint = false;
 var strokeArray = new Array();
 var currStroke = new stroke();
+var strokeWidth = 5;
 
 var SelectImageId = null;
 
@@ -121,6 +122,7 @@ function myMousedown(e){
 	  currStroke.clickY.push(e.pageY - this.offsetTop);
 	  currStroke.clickDrag.push(true);
 	  currStroke.colour.push(currColour);
+	  currStroke.lineWidth.push(strokeWidth);
 	  redraw();
 }
 
@@ -130,6 +132,7 @@ function myMousemove(e){
 		currStroke.clickY.push(e.pageY - this.offsetTop);
 		currStroke.clickDrag.push(true);
 		currStroke.colour.push(currColour);
+		currStroke.lineWidth.push(strokeWidth);
 	    redraw();
 	  }
 }
@@ -204,6 +207,7 @@ function drawAll() {
 		     context.lineTo(strokeArray[j].clickX[i], strokeArray[j].clickY[i]);
 		     context.closePath();
 		     context.strokeStyle = strokeArray[j].colour[i];
+		     context.lineWidth = strokeArray[j].lineWidth[i];
 		     context.stroke();
 		  }
 	  }
@@ -230,6 +234,7 @@ function redraw(){
 	   context.lineTo(currStroke.clickX[i], currStroke.clickY[i]);
 	   context.closePath();
 	   context.strokeStyle = currStroke.colour[i];
+	   context.lineWidth = currStroke.lineWidth[i];
 	   context.stroke();
 	  }
 }
@@ -239,6 +244,7 @@ function stroke(x, y, dragging){
 	this.clickY = new Array();
 	this.colour = new Array();
 	this.clickDrag = new Array();
+	this.lineWidth = new Array();
 }
 
 function addStroke(myStroke) {
@@ -283,6 +289,10 @@ function setColour(){
 	 currColour = document.getElementById("colour").value;
 	 console.log("Colour" + currColour);
 	 //console.log("Value" + document.getElementById("colour").value);
+}
+
+function setLineWidth(){
+	strokeWidth = document,getElementById("lineWidth").value;
 }
 
 function resizeCanvas() {
