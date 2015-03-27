@@ -294,6 +294,7 @@ function setColour(){
 
 function setLineWidth(){
 	strokeWidth = document.getElementById("lineWidth").value;
+	console.log("strokeWidth set to " + strokeWidth);
 }
 
 function resizeCanvas() {
