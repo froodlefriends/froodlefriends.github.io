@@ -55,7 +55,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
     <div class="pane smalle_pane">
 
       <div id='test' class="photo_colour_box">
-        <div class='colorwheel'/>
+        <div class='colorwheel' onclick="setColour"/>
           <input hidden class="color" id="colour" type='text' onchange=setColour()/>
         </div>
       </div>
