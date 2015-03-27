@@ -22,6 +22,8 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
   <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png">
 </head>
 <body>
+  <img hidden id="image" src="https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10461476_10152506437588124_6370622596565830669_n.jpg?oh=119f18951cd74eea45391ff1d37c5fd9&oe=5578DA0E&__gda__=1434538008_6a216c2d64b02a15cb3e597aabe0a1b9"
+width=1000 max-height=700>
 
   <div>
     <div class="pane big_pane">
