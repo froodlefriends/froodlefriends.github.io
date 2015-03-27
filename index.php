@@ -26,7 +26,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
 
   <div>
     <div class="pane big_pane">
-      <div class="froodle_button" onclick="CSPhotoSelector()">
+      <div class="froodle_button" id="select">
         <span class="text">Select From Your Photos</span>
       </div>
       <div class="photo_upload_box">
