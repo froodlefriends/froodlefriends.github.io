@@ -293,6 +293,7 @@ function setColour(){
 }
 
 function setLineWidth(){
+	console.log("here");
 	strokeWidth = document.getElementById("lineWidth").value;
 	console.log("stroke width set to " + strokeWidth);
 }
