@@ -18,6 +18,12 @@ body {
     background-size: 100% 100%;
     background-size: cover;
 }
+.item_wrapper{
+  width:100%;
+}
+#myCanvas{
+  margin:0 auto;
+}
 
 .froodle_button {
   height: 40px;

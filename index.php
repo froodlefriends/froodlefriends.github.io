@@ -130,10 +130,10 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
             </div>
         </div>
     </div>
-  
-  <canvas id="myCanvas" width=3000px max-height="100%"></canvas>
-
-  
+  <div  class="item_wrapper">
+    <canvas id="myCanvas" width=3000px max-height="100%"></canvas>
+  </div>
+   
   <script type="text/javascript" src="/js/vendor/jquery-1.7.1.min.js"></script>
   <script type="text/javascript" src="/js/vendor/raphael-min.js"></script>
   <script type="text/javascript" src="/js/vendor/qunit.min.js"></script>
