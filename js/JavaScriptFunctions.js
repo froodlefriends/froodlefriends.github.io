@@ -6,7 +6,6 @@ var clickColor = new Array();
 var paint = false;
 var strokeArray = new Array();
 var currStroke = new stroke();
-var strokeWidth = 5; 		//default stroke width
 
 var SelectImageId = null;
 
@@ -17,7 +16,7 @@ img .setAttribute('crossOrigin', 'anonymous');
 img.src = "/images/w.png";
 
 //colour stuff
-var currColour = '#FFFFFF';
+var currColour = "#9b9b9b";
 
 //functions!
 function hello(){
@@ -124,6 +123,7 @@ function myMousemove(e){
 
 function myMouseup(){
 	paint = false;
+	//print(currStroke);
 	if(currStroke.clickX.length > 0){
 	  strokeArray.push(currStroke);
 	  console.log("canvas mouse up stroke");
@@ -132,6 +132,7 @@ function myMouseup(){
 }
 
 function myMouseleave(){
+	//paint = false;
 	if(currStroke.clickX.length > 0){
 	  strokeArray.push(currStroke);
 	  console.log("mouse leave stroke");
@@ -166,17 +167,14 @@ function undo() {
 	drawAll();
 }
 
-//redraws all strokes
 function drawAll() {
 	context = document.getElementById('myCanvas').getContext("2d");
+	context.strokeStyle = "#df4b26";
 	context.lineJoin = "round";
 	context.lineWidth = 5; 
 	  
 	console.log('stroke array before drawAll: ' + strokeArray.length)
 	  for(var j=0; j<strokeArray.length; j++){
-	  	//if(strokeArray[j].clickX.length == 1){
-	  	//	context.fillRect(strokeArray[j].clickX[0], strokeArray[j].clickY[0], strokeArray[j].clickX[0]+1, strokeArray[j].clickY[0]+1);
-	 	 //}
 		  for(var i=0; i < strokeArray[j].clickX.length; i++) {		
 		    context.beginPath();
 		    if(strokeArray[j].clickDrag[i] && i){
@@ -192,13 +190,13 @@ function drawAll() {
 	  }
 }
 
-//draws just the current stroke
 function redraw(){
 	context = document.getElementById('myCanvas').getContext("2d");
+	context.strokeStyle = "#df4b26";
 	context.lineJoin = "round";
 	context.lineWidth = 5;
 
-	  if(currStroke.clickX.length == 1){
+	  if(currStroke.length == 1){
 	  	context.fillRect(currStroke.clickX[0], currStroke.clickY[0], currStroke.clickX[0]+1, currStroke.clickY[0]+1);
 	  }
 				
