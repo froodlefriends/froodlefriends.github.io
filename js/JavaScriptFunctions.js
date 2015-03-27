@@ -122,18 +122,22 @@ function myMousemove(e){
 }
 
 function myMouseup(){
-	  paint = false;
-	  //print(currStroke);
+	paint = false;
+	//print(currStroke);
+	if(currStroke.length > 0){
 	  strokeArray.push(currStroke);
 	  console.log("canvas mouse up stroke");
 	  currStroke = new stroke();
+	}
 }
 
 function myMouseleave(){
-	  //paint = false;
+	//paint = false;
+	if(currStroke > 0){
 	  strokeArray.push(currStroke);
 	  console.log("mouse leave stroke");
 	  currStroke = new stroke();
+	}
 }
 
 function myMouseenter(){
@@ -146,9 +150,11 @@ function globalMousedown(){
 
 function globalMouseup(){
 	paint = false;
-	strokeArray.push(currStroke);
-	console.log("g mouse up stroke");
-	currStroke = new stroke();
+	if(currStroke.length > 0){
+		strokeArray.push(currStroke);
+		console.log("g mouse up stroke");
+		currStroke = new stroke();
+	}
 }
 
 function print(array) {
