@@ -108,13 +108,13 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
 
   <canvas id="myCanvas" width=3000px max-height="100%"></canvas>
 
-  <script src="vendor/jquery-1.7.1.min.js"></script>
-  <script src="vendor/raphael-min.js" type="text/javascript"></script>
-  <script src="vendor/qunit.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="/vendor/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="/vendor/raphael-min.js"></script>
+  <script type="text/javascript" src="/vendor/qunit.min.js"></script>
 
-  <script type="text/javascript" src="js/JavaScriptFunctions.js"></script>
-  <script type="text/javascript" src="js/FurtherJSFunctions.js"></script>
-  <script type="text/javascript" src="js/colorwheel.js" ></script>
+  <script type="text/javascript" src="/js/JavaScriptFunctions.js"></script>
+  <script type="text/javascript" src="/js/FurtherJSFunctions.js"></script>
+  <script type="text/javascript" src="/js/colorwheel.js" ></script>
 
 
   <script type="text/javascript">
