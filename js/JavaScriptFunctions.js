@@ -16,7 +16,7 @@ img .setAttribute('crossOrigin', 'anonymous');
 img.src = "/images/w.png";
 
 //colour stuff
-var currColour = "#9b9b9b";
+var currColour = "#FFFFFF";
 
 //functions!
 function hello(){
@@ -167,6 +167,7 @@ function undo() {
 	drawAll();
 }
 
+//draws all strokes
 function drawAll() {
 	context = document.getElementById('myCanvas').getContext("2d");
 	context.strokeStyle = "#df4b26";
@@ -175,6 +176,11 @@ function drawAll() {
 	  
 	console.log('stroke array before drawAll: ' + strokeArray.length)
 	  for(var j=0; j<strokeArray.length; j++){
+
+	  	//if(strokeArray[j].length == 1){
+	  	//	context.fillRect(strokeArray[j].clickX[0], strokeArray[j].clickY[0], strokeArray[j].clickX[0]+1, strokeArray[j].clickY[0]+1);
+	  	//}
+
 		  for(var i=0; i < strokeArray[j].clickX.length; i++) {		
 		    context.beginPath();
 		    if(strokeArray[j].clickDrag[i] && i){
@@ -190,6 +196,7 @@ function drawAll() {
 	  }
 }
 
+//draws current stroke
 function redraw(){
 	context = document.getElementById('myCanvas').getContext("2d");
 	context.strokeStyle = "#df4b26";
