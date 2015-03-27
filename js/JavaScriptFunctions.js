@@ -124,7 +124,7 @@ function myMousemove(e){
 function myMouseup(){
 	paint = false;
 	//print(currStroke);
-	if(currStroke.length > 0){
+	if(currStroke.clickX.length > 0){
 	  strokeArray.push(currStroke);
 	  console.log("canvas mouse up stroke");
 	  currStroke = new stroke();
@@ -133,7 +133,7 @@ function myMouseup(){
 
 function myMouseleave(){
 	//paint = false;
-	if(currStroke > 0){
+	if(currStroke.clickX.length > 0){
 	  strokeArray.push(currStroke);
 	  console.log("mouse leave stroke");
 	  currStroke = new stroke();
@@ -150,7 +150,7 @@ function globalMousedown(){
 
 function globalMouseup(){
 	paint = false;
-	if(currStroke.length > 0){
+	if(currStroke.clickX.length > 0){
 		strokeArray.push(currStroke);
 		console.log("g mouse up stroke");
 		currStroke = new stroke();
@@ -166,7 +166,7 @@ function print(array) {
 function undo() {
 	strokeArray.pop();
 	console.log("pop!");
-	//reset();
+	reset();
 	loadImage();
 	drawAll();
 }
@@ -204,6 +204,10 @@ function redraw(){
 	  context.strokeStyle = "#df4b26";
 	  context.lineJoin = "round";
 	  context.lineWidth = 5;
+
+	  //if(currStroke.length == 1){
+	  //	context.fillRect(currStroke[0])
+	  //}
 				
 	  for(var i=0; i < currStroke.clickX.length; i++) {		
 	    context.beginPath();
@@ -246,13 +250,12 @@ function loadImage() {
 
 //reset all strokes?
 function resetAll(){
-	currStroke = new Array();
+	currStroke = new stroke();
 	strokeArray = new Array();
-	strokeArray.length = 0;
-	currStroke.length = 0;
+	//strokeArray.length = 0;
+	//currStroke.length = 0;
 	reset();
 	loadImage();
-
 }
 
 //reset just the current stroke?
@@ -262,9 +265,7 @@ function reset(){
 	clickY = new Array();
 	clickDrag = new Array();
 	clickColor = new Array();
-	//currStroke = new Array();
-	//strokeArray = new Array();
-	//loadImage();
+	currStroke = new stroke();
 }
 
 function setColour(){
