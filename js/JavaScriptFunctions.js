@@ -96,18 +96,16 @@ function initFb(){
 }
 
 function postPicture(){
-    if (confirm("Publish your Froodle to Facebook?") == true) {
-        PostImageToFacebook(accessToken);
-    } else {
-        console.log("post cancelled");
-    }
+    closeBox();
+    PostImageToFacebook(accessToken);
 }
 function post(){
     $('#sign_up').lightbox_me({
         centered: true,
         onLoad: function() {
             console.log("opening image")
-            $('#lightBoxImage').attr('src',img.src );
+            var imageData = document.getElementById('myCanvas').toDataURL("image/png");
+            $('#lightBoxImage').attr('src',imageData );
             $('#sign_up').trigger('reposition');
         }
     });

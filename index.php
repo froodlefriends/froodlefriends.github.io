@@ -119,7 +119,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
                     <img id="lightBoxImage" src="images/w.png" class="post_preview"/>
                 </div>
                 <div class="post_center">
-                    <div class="froodle_button smaller_button" onclick="PostImageToFacebook(accessToken)">
+                    <div class="froodle_button smaller_button" onclick="postPicture()">
                         <span class="text">Save</span>
                     </div>
                     <div class="froodle_button smaller_button cancel_button" onclick="closeBox()">
