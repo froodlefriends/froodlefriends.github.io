@@ -140,10 +140,6 @@ function myMouseleave(){
 	}
 }
 
-function myMouseenter(){
-
-}
-
 function globalMousedown(){
 	paint = true;
 }
@@ -173,12 +169,9 @@ function undo() {
 
 function drawAll() {
 	context = document.getElementById('myCanvas').getContext("2d");
-	  //context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-	  
-	  context.strokeStyle = "#df4b26";
-	  context.lineJoin = "round";
-	  context.lineWidth = 5;
-	  
+	context.strokeStyle = "#df4b26";
+	context.lineJoin = "round";
+	context.lineWidth = 5; 
 	  
 	console.log('stroke array before drawAll: ' + strokeArray.length)
 	  for(var j=0; j<strokeArray.length; j++){
@@ -199,27 +192,25 @@ function drawAll() {
 
 function redraw(){
 	context = document.getElementById('myCanvas').getContext("2d");
-	  //context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-	  
-	  context.strokeStyle = "#df4b26";
-	  context.lineJoin = "round";
-	  context.lineWidth = 5;
+	context.strokeStyle = "#df4b26";
+	context.lineJoin = "round";
+	context.lineWidth = 5;
 
-	  //if(currStroke.length == 1){
-	  //	context.fillRect(currStroke[0])
-	  //}
+	  if(currStroke.length == 1){
+	  	context.fillRect(currStroke.clickX[0], currStroke.clickY[0], currStroke.clickX[0]+1, currStroke.clickY[0]+1);
+	  }
 				
-	  for(var i=0; i < currStroke.clickX.length; i++) {		
-	    context.beginPath();
-	    if(currStroke.clickDrag[i] && i){
-	      context.moveTo(currStroke.clickX[i-1], currStroke.clickY[i-1]);
-	     }else{
-	       context.moveTo(currStroke.clickX[i]-1, currStroke.clickY[i]);
-	     }
-	     context.lineTo(currStroke.clickX[i], currStroke.clickY[i]);
-	     context.closePath();
-	     context.strokeStyle = currStroke.colour[i];
-	     context.stroke();
+	for(var i=0; i < currStroke.clickX.length; i++) {		
+	  context.beginPath();
+	  if(currStroke.clickDrag[i] && i){
+	    context.moveTo(currStroke.clickX[i-1], currStroke.clickY[i-1]);
+	   }else{
+	     context.moveTo(currStroke.clickX[i]-1, currStroke.clickY[i]);
+	   }
+	   context.lineTo(currStroke.clickX[i], currStroke.clickY[i]);
+	   context.closePath();
+	   context.strokeStyle = currStroke.colour[i];
+	   context.stroke();
 	  }
 }
 

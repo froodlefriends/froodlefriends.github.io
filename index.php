@@ -168,7 +168,6 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
   document.getElementById('myCanvas').onmouseup = myMouseup;
   document.getElementById('myCanvas').onmousemove = myMousemove;
   document.getElementById('myCanvas').onmouseleave = myMouseleave;
-  document.getElementById('myCanvas').onmouseenter = myMouseenter;
 
   </script>
 
