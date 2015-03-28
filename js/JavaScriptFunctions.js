@@ -268,6 +268,8 @@ function loadImage() {
             h: img.height
         };
         var c = document.getElementById("myCanvas");
+        c.width = imgSize.w;
+        c.height = imgSize.h;
         var ctx = c.getContext("2d");
         ctx.drawImage(img, 0, 0, imgSize.w, imgSize.h);
     };
