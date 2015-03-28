@@ -175,7 +175,7 @@ function undo() {
 	strokeArray.pop();
 	console.log("pop!");
 	reset();
-	loadImage();
+	//loadImage();
 	drawAll();
 }
 
