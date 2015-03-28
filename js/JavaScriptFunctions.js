@@ -54,10 +54,7 @@ function initFb(){
 				console.log(response);
 
 				img.onload = function(){
-					var c = document.getElementById("myCanvas");
-					var ctx = c.getContext("2d");
-					ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
-					console.log("set image");
+					loadImage();
 				};
 				console.log('prof pic is '+response.data.url);
 				img.src = response.data.url;
@@ -261,15 +258,20 @@ function loadFromURL() {
 }
 
 function loadImage() {
-    var c = document.getElementById("myCanvas");
-    if (img_width != 0) {
-        c.width = img_width;
-    }
-    if (img_height != 0) {
-        c.height = img_height;
-    }
-    var ctx = c.getContext("2d");
-    ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
+    var loadImg = new Image();
+    loadImg.src = img.src;
+
+    //loads image to get width and height for canvas
+    loadImg.onload = function(){
+        var imgSize = {
+            w: img.width,
+            h: img.height
+        };
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.drawImage(img, 0, 0, imgSize.w, imgSize.h);
+    };
+
 }
 
 //reset all strokes?
@@ -768,9 +770,6 @@ var CSPhotoSelector = (function(module, $) {
                             console.log(response)
                             if (response && !response.error) {
                                 img.src = response.source;
-                                img_width = response.width;
-                                img_height = response.height;
-                                loadImage();
                             }
                         }
                     );
