@@ -175,7 +175,7 @@ function undo() {
 	strokeArray.pop();
 	console.log("pop!");
 	reset();
-	//loadImage();
+	reLoadImage();
 	drawAll();
 }
 
@@ -273,7 +273,12 @@ function loadImage() {
         var ctx = c.getContext("2d");
         ctx.drawImage(img, 0, 0, imgSize.w, imgSize.h);
     };
+}
 
+function reLoadImage(){
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.drawImage(img, 0, 0, document.getElementById("myCanvas").width, document.getElementById("myCanvas").height);
 }
 
 //reset all strokes?
@@ -283,7 +288,7 @@ function resetAll(){
 	//strokeArray.length = 0;
 	//currStroke.length = 0;
 	reset();
-	loadImage();
+	reLoadImage();
 }
 
 //reset just the current stroke?
