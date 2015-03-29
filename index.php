@@ -177,7 +177,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
     });
   }
   $(run_tests);
-
+ 
   document.ready = setColour();
   document.ready = resizeCanvas();
   //document.ready = resizeImage();
