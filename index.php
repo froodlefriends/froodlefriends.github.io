@@ -172,7 +172,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
       var onchange_count = 0;
       cw.onchange(function(){ onchange_count += 1; });
       equal(onchange_count, 0, "onchange has not triggered yet");
-      input.val("#ffffff").trigger("keyup");
+      input.val("#FFFFFF").trigger("keyup");
       equal(onchange_count, 1, "onchange should trigger when input changed");
     });
   }
