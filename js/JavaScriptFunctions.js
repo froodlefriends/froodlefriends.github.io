@@ -270,10 +270,11 @@ function addStroke(myStroke) {
 function loadFromURL() {
 	console.log('am here');
 	var imageURL = document.getElementById("urlToUpload").value;
-	//if(/*(imageURL.indexOf("https") > -1) || */(imageURL.indexOf("http") != 0)) {
-	//	alert("We're sorry, we can't access this image.");
-	//	return;
-	//}
+	if((imageURL.indexOf("http") != 0)) {
+		alert("We're sorry, we can't access this image.");
+		return;
+	}
+	imageURL = imageURL.substring(imageURL.indexOf("//"));
 	console.log(imageURL);
  
 	try {
@@ -281,6 +282,7 @@ function loadFromURL() {
             url: imageURL,
             type: "GET",
             crossDomain: true,
+            timeout: 2500,
             success: function (data) {
 	            	console.log(data);
 	            	img.src = imageURL;
