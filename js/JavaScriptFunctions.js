@@ -1105,7 +1105,7 @@ var CSPhotoSelector = (function(module, $) {
 						// Call the callback
 						if (typeof callback === 'function') { callback(); }
 					} else {
-						alert ('Sorry, your friend won\'t let us look through their photos');
+						alert ("We're sorry, you don't seem to have any photos. Please upload some.");
 						log('CSPhotoSelector - buildAlbumSelector - No albums returned');
 						return false;
 					}
