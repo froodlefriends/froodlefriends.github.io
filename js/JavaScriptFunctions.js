@@ -174,15 +174,18 @@ function print(array) {
 }
 
 function undo() {
-	redoArray.push(strokeArray.pop());
-	console.log("pop!");
-	reset();
-	reLoadImage();
-	drawAll();
+	if(strokeArray.lenght > 0){
+		redoArray.push(strokeArray.pop());
+		console.log("pop!");
+		reset();
+		reLoadImage();
+		drawAll();
+	}
 }
 
 function redo(){
 	if(redoArray.length > 0){
+		console.log("redo length > 0")
 		var temp = redoArray.pop();
 		strokeArray.push(temp);
 		currStroke = temp;
