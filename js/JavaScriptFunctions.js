@@ -270,8 +270,8 @@ function addStroke(myStroke) {
 function loadFromURL() {
 	console.log('am here');
 	var imageURL = document.getElementById("urlToUpload").value;
-	if(imageURL.indexOf("https") == -1){
-		alert("We're sorry, we can't access this image");
+	if(imageURL.indexOf("https") > -1){
+		alert("We're sorry, we can't access this image2");
 		return;
 	}
 	console.log(imageURL);
@@ -299,6 +299,9 @@ function loadFromURL() {
             nocontent: function(){
             	console.log("Ajax no content");
             },
+            timeout: function(){
+            	alert("Sorry, we cant access that image.")
+            }
             complete: function () {
                 console.log("Posted to facebook");
             }
