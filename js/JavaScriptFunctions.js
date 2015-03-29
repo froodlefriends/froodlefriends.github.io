@@ -7,7 +7,6 @@ var paint = false;
 var strokeArray = new Array();
 var currStroke = new stroke();
 var strokeWidth = 5;
-var redoArray = new Array();
 
 var SelectImageId = null;
 
@@ -173,21 +172,11 @@ function print(array) {
 }
 
 function undo() {
-	redoArray.push(strokeArray.pop());
+	strokeArray.pop();
 	console.log("pop!");
 	reset();
 	reLoadImage();
 	drawAll();
-}
-
-function redo(){
-	if(redoArray.length > 0){
-		var temp = redoArray.pop();
-		strokeArray.push(temp);
-		currStroke = temp;
-		redraw();
-		currStroke = new stroke();
-	}
 }
 
 //draws all strokes
