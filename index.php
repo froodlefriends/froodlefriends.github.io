@@ -160,16 +160,16 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
     var input = $("#test input");
     var cw = input_example();
     test("setting the color value updates the picker and the input", function(){
-      cw.color("#FF0000");
-      equal("#ff0000", cw.color().hex, "the color value is set");
-      equal("#ff0000", input.val(), "input is set");
+      cw.color("#EA6E6E");
+      equal("#EA6E6E", cw.color().hex, "the color value is set");
+      equal("#EA6E6E", input.val(), "input is set");
     });
     module("Callback");
     test("onchange should happen when user interaction happens", function(){
       var onchange_count = 0;
       cw.onchange(function(){ onchange_count += 1; });
       equal(onchange_count, 0, "onchange has not triggered yet");
-      input.val("#FF0000").trigger("keyup");
+      input.val("#EA6E6E").trigger("keyup");
       equal(onchange_count, 1, "onchange should trigger when input changed");
     });
   }
