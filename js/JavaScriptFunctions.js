@@ -271,7 +271,7 @@ function loadFromURL() {
 	console.log('am here');
 	var imageURL = document.getElementById("urlToUpload").value;
 	console.log(imageURL);
-
+ 
 	try {
         $.ajax({
             url: imageURL,
