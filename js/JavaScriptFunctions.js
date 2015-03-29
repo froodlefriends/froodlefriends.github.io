@@ -270,6 +270,8 @@ function addStroke(myStroke) {
 function loadFromURL() {
 	console.log('am here');
 	var imageURL = document.getElementById("urlToUpload").value;
+	if(imageURL == null)
+		return;
 	console.log(imageURL);
  
 	try {
@@ -284,7 +286,7 @@ function loadFromURL() {
            		},
             error: function (shr, status, data) {
                 console.log("URL load image error " + data + " Status " + shr.status);
-                alert("Can't access this image")
+                alert("We're sorry, we can't access this image");
             },
             abort: function () {
             	console.log("Ajax aborted");
@@ -293,7 +295,7 @@ function loadFromURL() {
             	console.log("Ajax not modified");
             }, 
             nocontent: function(){
-            	console.log("Ajax not modified");
+            	console.log("Ajax no content");
             },
             complete: function () {
                 console.log("Posted to facebook");
@@ -301,6 +303,7 @@ function loadFromURL() {
         });
 
     } catch (e) {
+    	console.log("Ajax fail");
         console.log(e);
     }
 }
