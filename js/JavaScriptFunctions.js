@@ -174,7 +174,7 @@ function print(array) {
 }
 
 function undo() {
-	if(strokeArray.lenght > 0){
+	if(strokeArray.length > 0){
 		redoArray.push(strokeArray.pop());
 		console.log("pop!");
 		reset();
