@@ -140,6 +140,7 @@ function myMouseup(){
 	//print(currStroke);
 	if(currStroke.clickX.length > 0){
 	  strokeArray.push(currStroke);
+	  redoArray = new Array();
 	  console.log("canvas mouse up stroke");
 	  currStroke = new stroke();
 	}
@@ -149,6 +150,7 @@ function myMouseleave(){
 	//paint = false;
 	if(currStroke.clickX.length > 0){
 	  strokeArray.push(currStroke);
+	  redoArray = new Array();
 	  console.log("mouse leave stroke");
 	  currStroke = new stroke();
 	}
@@ -162,6 +164,7 @@ function globalMouseup(){
 	paint = false;
 	if(currStroke.clickX.length > 0){
 		strokeArray.push(currStroke);
+		redoArray = new Array();
 		console.log("g mouse up stroke");
 		currStroke = new stroke();
 	}
