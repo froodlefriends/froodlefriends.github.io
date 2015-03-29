@@ -271,7 +271,7 @@ function loadFromURL() {
 	console.log('am here');
 	var imageURL = document.getElementById("urlToUpload").value;
 	console.log(imageURL);
-
+ 
 	try {
         $.ajax({
             url: imageURL,
@@ -279,13 +279,12 @@ function loadFromURL() {
             success: function (data) {
 	            	console.log(data);
 	            	img.src = imageURL;
-					resetAll();	
-                );
+					resetAll();
             },
             error: function (shr, status, data) {
                 console.log("URL load image error " + data + " Status " + shr.status);
                 alert("Can't access this image")
-            },
+            }
         });
 
     } catch (e) {
