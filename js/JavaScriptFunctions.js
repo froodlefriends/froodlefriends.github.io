@@ -300,8 +300,8 @@ function loadFromURL() {
             	console.log("Ajax no content");
             },
             timeout: function(){
-            	alert("Sorry, we cant access that image.")
-            }
+            	alert("Sorry, we cant access that image.");
+            },
             complete: function () {
                 console.log("Posted to facebook");
             }
