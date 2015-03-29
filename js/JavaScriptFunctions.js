@@ -276,6 +276,7 @@ function loadFromURL() {
         $.ajax({
             url: imageURL,
             type: "GET",
+            crossDomain: true,
             success: function (data) {
 	            	console.log(data);
 	            	img.src = imageURL;
@@ -284,6 +285,15 @@ function loadFromURL() {
             error: function (shr, status, data) {
                 console.log("URL load image error " + data + " Status " + shr.status);
                 alert("Can't access this image")
+            },
+            abort: function () {
+            	console.log("Ajax aborted");
+            },
+            notmodified: function(){
+            	console.log("Ajax not modified");
+            }, 
+            nocontent: function(){
+            	console.log("Ajax not modified");
             },
             complete: function () {
                 console.log("Posted to facebook");
