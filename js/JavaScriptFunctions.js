@@ -307,6 +307,7 @@ function resetAll(){
 
 //reset just the current stroke?
 function reset(){
+	context = document.getElementById('myCanvas').getContext('2d');
 	context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
 	clickX = new Array();
 	clickY = new Array();
