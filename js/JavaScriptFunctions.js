@@ -19,7 +19,7 @@ img.src = "/images/w.png";
 var img_width = 0;
 var img_height = 0;
 //colour stuff
-var currColour = "#FFFFFF";
+var currColour = "#000000";
 
 //functions!
 function hello(){
@@ -309,7 +309,7 @@ function reset(){
 	clickDrag = new Array();
 	clickColor = new Array();
 	currStroke = new stroke();
-	redoArray = new Array();
+	//redoArray = new Array();
 }
 
 function setColour(){
