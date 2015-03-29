@@ -19,7 +19,7 @@ img.src = "/images/w.png";
 var img_width = 0;
 var img_height = 0;
 //colour stuff
-var currColour = "#FFFFFF";
+var currColour;
 
 //functions!
 function hello(){
@@ -193,7 +193,7 @@ function redo(){
 //draws all strokes
 function drawAll() {
 	context = document.getElementById('myCanvas').getContext("2d");
-	//context.strokeStyle = "#EA6E6E";
+	context.strokeStyle = "#EA6E6E";
 	context.lineJoin = "round";
 	//context.lineWidth = 100; 
 	  
@@ -224,7 +224,7 @@ function drawAll() {
 //draws current stroke
 function redraw(){
 	context = document.getElementById('myCanvas').getContext("2d");
-	//context.strokeStyle = "#EA6E6E";
+	context.strokeStyle = "#EA6E6E";
 	context.lineJoin = "round";
 	//context.lineWidth = 100;
 
