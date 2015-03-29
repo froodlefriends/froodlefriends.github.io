@@ -296,8 +296,7 @@ function reLoadImage(){
 function resetAll(){
 	currStroke = new stroke();
 	strokeArray = new Array();
-	//strokeArray.length = 0;
-	//currStroke.length = 0;
+	redoArray = new Array();
 	reset();
 	reLoadImage();
 }
@@ -310,6 +309,7 @@ function reset(){
 	clickDrag = new Array();
 	clickColor = new Array();
 	currStroke = new stroke();
+	redoArray = new Array();
 }
 
 function setColour(){
