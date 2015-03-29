@@ -59,7 +59,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
 
       <div id='test' class="photo_colour_box">
         <div class='colorwheel' onclick="setColour()"/>
-          <input hidden class="color" id="colour" type='text' onchange="setColour()"/>
+          <input hidden class="color" id="colour" type='text' onchange=setColour()/>
         </div>
         <div>
           <input type="range" id="lineWidth" value="5" min="1" max="50" oninput="setLineWidth()"/>
