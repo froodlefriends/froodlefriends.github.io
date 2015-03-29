@@ -48,9 +48,9 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
         <div class="shadow froodle_button smaller_button" onclick="undo()">
           <span class="text">Undo</span>
         </div>
-        <div class="shadow froodle_button smaller_button" onclick="redo()">
+        <!--<div class="shadow froodle_button smaller_button" onclick="redo()">
           <span class="text">Redo</span>
-        </div>
+        </div>-->
         <div class="clear">&#160;</div>
       </div>
 
@@ -163,16 +163,16 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
     var input = $("#test input");
     var cw = input_example();
     test("setting the color value updates the picker and the input", function(){
-      cw.color("#FF0000");
-      equal("#ff0000", cw.color().hex, "the color value is set");
-      equal("#ff0000", input.val(), "input is set");
+      cw.color("#FFFFFF");
+      equal("#FFFFFF", cw.color().hex, "the color value is set");
+      equal("#FFFFFF", input.val(), "input is set");
     });
     module("Callback");
     test("onchange should happen when user interaction happens", function(){
       var onchange_count = 0;
       cw.onchange(function(){ onchange_count += 1; });
       equal(onchange_count, 0, "onchange has not triggered yet");
-      input.val("#ffffff").trigger("keyup");
+      input.val("#FFFFFF").trigger("keyup");
       equal(onchange_count, 1, "onchange should trigger when input changed");
     });
   }
