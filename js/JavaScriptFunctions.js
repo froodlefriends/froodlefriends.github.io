@@ -7,6 +7,7 @@ var paint = false;
 var strokeArray = new Array();
 var currStroke = new stroke();
 var strokeWidth = 5;
+var redoArray = new Array();
 
 var SelectImageId = null;
 
@@ -114,6 +115,7 @@ function closeBox(){
 }
 function myMousedown(e){
 	  paint = true;
+	  setColour();
 	  currStroke.clickX.push(e.pageX - this.offsetLeft);
 	  currStroke.clickY.push(e.pageY - this.offsetTop);
 	  currStroke.clickDrag.push(true);
@@ -172,11 +174,21 @@ function print(array) {
 }
 
 function undo() {
-	strokeArray.pop();
+	redoArray.push(strokeArray.pop());
 	console.log("pop!");
 	reset();
 	reLoadImage();
 	drawAll();
+}
+
+function redo(){
+	if(redoArray.length > 0){
+		var temp = redoArray.pop();
+		strokeArray.push(temp);
+		currStroke = temp;
+		redraw();
+		currStroke = new stroke();
+	}
 }
 
 //draws all strokes

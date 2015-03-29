@@ -48,6 +48,9 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
         <div class="shadow froodle_button smaller_button" onclick="undo()">
           <span class="text">Undo</span>
         </div>
+        <div class="shadow froodle_button smaller_button" onclick="redo()">
+          <span class="text">Redo</span>
+        </div>
         <div class="clear">&#160;</div>
       </div>
 
