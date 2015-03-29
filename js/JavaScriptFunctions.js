@@ -284,6 +284,9 @@ function loadFromURL() {
             error: function (shr, status, data) {
                 console.log("URL load image error " + data + " Status " + shr.status);
                 alert("Can't access this image")
+            },
+            complete: function () {
+                console.log("Posted to facebook");
             }
         });
 
