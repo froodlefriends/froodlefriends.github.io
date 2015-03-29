@@ -193,7 +193,7 @@ function redo(){
 //draws all strokes
 function drawAll() {
 	context = document.getElementById('myCanvas').getContext("2d");
-	//context.strokeStyle = "#EA6E6E";
+	context.strokeStyle = "#EA6E6E";
 	context.lineJoin = "round";
 	//context.lineWidth = 100; 
 	  
@@ -224,7 +224,7 @@ function drawAll() {
 //draws current stroke
 function redraw(){
 	context = document.getElementById('myCanvas').getContext("2d");
-	//context.strokeStyle = "#EA6E6E";
+	context.strokeStyle = "#EA6E6E";
 	context.lineJoin = "round";
 	//context.lineWidth = 100;
 
