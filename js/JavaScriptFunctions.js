@@ -19,7 +19,7 @@ img.src = "/images/w.png";
 var img_width = 0;
 var img_height = 0;
 //colour stuff
-var currColour;
+var currColour = "#000000";
 
 //functions!
 function hello(){
