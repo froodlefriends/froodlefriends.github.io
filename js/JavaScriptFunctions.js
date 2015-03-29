@@ -297,6 +297,7 @@ function reLoadImage(){
 function resetAll(){
 	currStroke = new stroke();
 	strokeArray = new Array();
+	redoArray = new Array();
 	//strokeArray.length = 0;
 	//currStroke.length = 0;
 	reset();
