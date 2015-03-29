@@ -270,6 +270,7 @@ function loadFromURL() {
 }
 
 function loadImage() {
+	resetAll();
     var loadImg = new Image();
     loadImg.src = img.src;
 
