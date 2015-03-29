@@ -271,8 +271,26 @@ function loadFromURL() {
 	console.log('am here');
 	var imageURL = document.getElementById("urlToUpload").value;
 	console.log(imageURL);
-	img.src = imageURL;
-	resetAll();
+
+	try {
+        $.ajax({
+            url: imageURL,
+            type: "GET",
+            success: function (data) {
+	            	console.log(data);
+	            	img.src = imageURL;
+					resetAll();	
+                );
+            },
+            error: function (shr, status, data) {
+                console.log("URL load image error " + data + " Status " + shr.status);
+                alert("Can't access this image")
+            },
+        });
+
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 function loadImage() {
