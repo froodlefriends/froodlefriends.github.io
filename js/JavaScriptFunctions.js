@@ -32,7 +32,7 @@ function initFb(){
 		FB.init({
 		  appId      : '776638695748072',
 		  xfbml      : true,
-		  version    : 'v2.2'
+		  version    : 'v2.3'
 		});
 
 		console.log("finished FB.init");
@@ -47,6 +47,9 @@ function initFb(){
 	  } 
 	  else if(response.status === 'not_authorized'){
 	  	console.log("User not authorised - need fix!");
+	  	FB.login(function(response) {
+		  onLogin(response);
+		}, {scope: 'user_friends, email, publish_stream, publish_actions  , user_photos '});
 	  }
 	  else {
 		// Otherwise, show Login dialog first.
@@ -58,8 +61,6 @@ function initFb(){
 
 	function onLogin(response) {
 		console.log(response);
-	  if (response.status === 'connected') {
-
 		accessToken = response.authResponse.accessToken;
 
 		FB.api(
@@ -86,14 +87,7 @@ function initFb(){
 				console.log("error getting picture");
 			}
 		});
-		console.log("end connected");
-	  }
-	  else if(response.status === 'not_authorized'){
-	  	console.log("use not auth");
-	  }
-	  console.log("test running");
 	}
-	console.log("onLogin done")
 /*
 	FB.getLoginStatus(function(response) {
 		console.log("Checking login status");
