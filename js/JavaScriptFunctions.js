@@ -68,7 +68,7 @@ function initFb(){
 		"/me/picture",
 			{
 			"redirect": false,
-			"width": 9999
+			"width": 2000
 			},
 		function (response) {
 			console.log("getting profiile picture");

@@ -198,6 +198,13 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
   document.getElementById('myCanvas').onmouseup = myMouseup;
   document.getElementById('myCanvas').onmousemove = myMousemove;
   document.getElementById('myCanvas').onmouseleave = myMouseleave;
+  //touch screen event listeners?
+  document.ontouchend = globalMouseup;
+  document.ontouchstart = globalMousedown;
+  document.getElementById('myCanvas').touchstart = myMousedown;
+  document.getElementById('myCanvas').touchmove = myMousemove;
+  document.getElementById('myCanvas').touchend = myMouseup;
+  document.getElementById('myCanvas').touchleave = myMouseleave;
 
   </script>
 
