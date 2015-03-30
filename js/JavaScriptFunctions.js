@@ -38,7 +38,7 @@ function initFb(){
 		console.log("finished FB.init");
 
 		FB.getLoginStatus(function(response) {
-		console.log("Checking login status");
+		console.log("Checking login status" + response);
 	  // Check login status on load, and if the user is
 	  // already logged in, go directly to the welcome message.
 	  if (response.status === 'connected') {
@@ -332,9 +332,6 @@ function loadFromURL() {
             },
             timeout: function(){
             	alert("Sorry, we cant access that image.");
-            },
-            complete: function () {
-                console.log("Posted to facebook");
             }
         });
 
@@ -470,7 +467,7 @@ function PostImageToFacebook(authToken) {
             },
             error: function (shr, status, data) {
                 console.log("error " + data + " Status " + shr.status);
-                alert("Post Failed")
+                alert("Post Failed");
             },
             complete: function () {
                 console.log("Posted to facebook?");
@@ -1128,7 +1125,7 @@ var CSPhotoSelector = (function(module, $) {
 		// Check that the user is logged in to Facebook
 		FB.getLoginStatus(function(response) {
 			if (response.status === 'connected') {
-				var accessToken = response.authResponse.accessToken;
+				//var accessToken = response.authResponse.accessToken;
 				// Load Facebook photos
 				FB.api('/'+ id +'/albums',
                     function(response) {
