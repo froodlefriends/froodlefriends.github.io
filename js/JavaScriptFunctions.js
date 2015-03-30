@@ -66,6 +66,7 @@ function initFb(){
 			}
 		});
 	  }
+	  console.log("test running");
 	}
 	console.log("onLogin done")
 
