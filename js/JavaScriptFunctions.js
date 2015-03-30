@@ -71,9 +71,14 @@ function initFb(){
 	FB.getLoginStatus(function(response) {
 	  // Check login status on load, and if the user is
 	  // already logged in, go directly to the welcome message.
-	  if (response.status == 'connected') {
+	  if (response.status === 'connected') {
+	  	console.log("User conencted and authorized");
 		onLogin(response);
-	  } else {
+	  } 
+	  else if(response.status === 'not_authorized'){
+	  	console.log("User not authorised - need fix!");
+	  }
+	  else {
 		// Otherwise, show Login dialog first.
 		FB.login(function(response) {
 		  onLogin(response);
@@ -281,8 +286,8 @@ function loadFromURL() {
         $.ajax({
             url: imageURL,
             type: "GET",
-            crossDomain: true,
-            timeout: 2500,
+            crossDomain: "true",
+            timeout: "2500",
             success: function (data) {
 	            	console.log(data);
 	            	img.src = imageURL;
