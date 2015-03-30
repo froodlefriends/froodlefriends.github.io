@@ -28,6 +28,26 @@ function hello(){
 
 
 function initFb(){
+
+	FB.getLoginStatus(function(response) {
+		console.log("Checking login status");
+	  // Check login status on load, and if the user is
+	  // already logged in, go directly to the welcome message.
+	  if (response.status === 'connected') {
+	  	console.log("User conencted and authorized");
+		onLogin(response);
+	  } 
+	  else if(response.status === 'not_authorized'){
+	  	console.log("User not authorised - need fix!");
+	  }
+	  else {
+		// Otherwise, show Login dialog first.
+		FB.login(function(response) {
+		  onLogin(response);
+		}, {scope: 'user_friends, email, publish_stream, publish_actions  , user_photos '});
+	  }
+	});
+	
 	window.fbAsyncInit = function() {
 		FB.init({
 		  appId      : '776638695748072',
@@ -72,7 +92,7 @@ function initFb(){
 	  console.log("test running");
 	}
 	console.log("onLogin done")
-
+/*
 	FB.getLoginStatus(function(response) {
 		console.log("Checking login status");
 	  // Check login status on load, and if the user is
@@ -91,6 +111,7 @@ function initFb(){
 		}, {scope: 'user_friends, email, publish_stream, publish_actions  , user_photos '});
 	  }
 	});
+*/
 
 
 		// ADD ADDITIONAL FACEBOOK CODE HERE
