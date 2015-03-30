@@ -57,6 +57,7 @@ function initFb(){
 	});
 
 	function onLogin(response) {
+		console.log(response);
 	  if (response.status === 'connected') {
 
 		accessToken = response.authResponse.accessToken;
