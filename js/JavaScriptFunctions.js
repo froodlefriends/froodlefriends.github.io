@@ -38,7 +38,7 @@ function initFb(){
 	function onLogin(response) {
 	  if (response.status === 'connected') {
 
-		accessToken = response.authResponse.accessToken
+		accessToken = response.authResponse.accessToken;
 
 		FB.api(
 		"/me/picture",
@@ -65,6 +65,9 @@ function initFb(){
 			}
 		});
 		console.log("end connected");
+	  }
+	  else if(response.status === 'not_authorized'){
+	  	console.log("use not auth");
 	  }
 	  console.log("test running");
 	}
