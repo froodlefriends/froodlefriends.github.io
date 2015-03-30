@@ -59,12 +59,12 @@ function initFb(){
 				};
 				console.log('prof pic is '+response.data.url);
 				img.src = response.data.url;
-
 			}
 			else{
 				console.log("error getting picture");
 			}
 		});
+		console.log("end connected");
 	  }
 	  console.log("test running");
 	}
