@@ -49,13 +49,14 @@ function initFb(){
 	  	console.log("User not authorised - need fix!");
 	  	FB.login(function(response) {
 		  onLogin(response);
-		}, {scope: 'user_friends, email, publish_stream, publish_actions  , user_photos '});
+		}, {scope: 'email, publish_stream, publish_actions, user_photos '});
 	  }
 	  else {
 		// Otherwise, show Login dialog first.
+		console.log("else - other");
 		FB.login(function(response) {
 		  onLogin(response);
-		}, {scope: 'user_friends, email, publish_stream, publish_actions  , user_photos '});
+		}, {scope: 'email, publish_stream, publish_actions, user_photos '});
 	  }
 	});
 
@@ -312,7 +313,7 @@ function loadFromURL() {
             crossDomain: "true",
             timeout: "2500",
             success: function (data) {
-	            	console.log(data);
+	            	//console.log(data);
 	            	img.src = imageURL;
 						resetAll();
            		},
@@ -451,13 +452,13 @@ function PostImageToFacebook(authToken) {
             contentType: false,
             cache: false,
             success: function (data) {
-                console.log("success " + data);
-                console.log(data);
+                //console.log("success " + data);
+                //console.log(data);
                 FB.api(
                     "/" + data.id ,
                     function (response) {
                         console.log("got posted picture")
-                        console.log(response)
+                        //console.log(response)
                         if (response && !response.error) {
                             FB.ui({
                                 method: 'share',
@@ -472,7 +473,7 @@ function PostImageToFacebook(authToken) {
                 alert("Post Failed")
             },
             complete: function () {
-                console.log("Posted to facebook");
+                console.log("Posted to facebook?");
             }
         });
 
