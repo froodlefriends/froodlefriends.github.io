@@ -36,7 +36,7 @@ function initFb(){
 		});
 
 	function onLogin(response) {
-	  if (response.status == 'connected') {
+	  if (response.status === 'connected') {
 
 		accessToken = response.authResponse.accessToken
 
@@ -67,8 +67,10 @@ function initFb(){
 		});
 	  }
 	}
+	console.log("onLogin done")
 
 	FB.getLoginStatus(function(response) {
+		console.log("Checking login status");
 	  // Check login status on load, and if the user is
 	  // already logged in, go directly to the welcome message.
 	  if (response.status === 'connected') {
