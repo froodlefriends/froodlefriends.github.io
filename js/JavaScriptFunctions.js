@@ -49,14 +49,14 @@ function initFb(){
 	  	console.log("User not authorised - need fix!");
 	  	FB.login(function(response) {
 		  onLogin(response);
-		}, {scope: 'email, publish_stream, publish_actions, user_photos '});
+		}, {scope: 'publish_actions, user_photos '});
 	  }
 	  else {
 		// Otherwise, show Login dialog first.
 		console.log("else - other");
 		FB.login(function(response) {
 		  onLogin(response);
-		}, {scope: 'email, publish_stream, publish_actions, user_photos '});
+		}, {scope: 'publish_actions, user_photos '});
 	  }
 	});
 
