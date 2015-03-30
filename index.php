@@ -199,12 +199,17 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
   document.getElementById('myCanvas').onmousemove = myMousemove;
   document.getElementById('myCanvas').onmouseleave = myMouseleave;
   //touch screen event listeners?
+
+  document.getElementById('myCanvas').addEventListener("touchmove", draw, false);
+  document.getElementById('myCanvas').addEventListener("touchend", end, false);
+  /*
   document.ontouchend = globalMouseup;
   document.ontouchstart = globalMousedown;
   document.getElementById('myCanvas').touchstart = myMousedown;
   document.getElementById('myCanvas').touchmove = myMousemove;
   document.getElementById('myCanvas').touchend = myMouseup;
   document.getElementById('myCanvas').touchleave = myMouseleave;
+  */
 
   </script>
 

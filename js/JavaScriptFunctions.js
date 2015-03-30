@@ -8,6 +8,7 @@ var strokeArray = new Array();
 var currStroke = new stroke();
 var strokeWidth = 5;
 var redoArray = new Array();
+var lastPt=null;
 
 var SelectImageId = null;
 
@@ -197,6 +198,24 @@ function globalMouseup(){
 		console.log("g mouse up stroke");
 		currStroke = new stroke();
 	}
+}
+//touch screen drawing stuffs
+function draw(e) {
+        e.preventDefault();
+        if(lastPt!=null) {
+        	ctx = document.getElementById('myCanvas').getContext("2d");
+          ctx.beginPath();
+          ctx.moveTo(lastPt.x, lastPt.y);
+          ctx.lineTo(e.touches[0].pageX, e.touches[0].pageY);
+          ctx.stroke();
+        }
+        lastPt = {x:e.touches[0].pageX, y:e.touches[0].pageY};
+      }
+ 
+function end(e) {
+        e.preventDefault();
+        // Terminate touch path
+        lastPt=null;
 }
 
 function print(array) {
