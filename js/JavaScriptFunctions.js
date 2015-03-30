@@ -27,9 +27,17 @@ function hello(){
 }
 
 
-function initFb(){
+function initFb(){	
+	window.fbAsyncInit = function() {
+		FB.init({
+		  appId      : '776638695748072',
+		  xfbml      : true,
+		  version    : 'v2.2'
+		});
 
-	FB.getLoginStatus(function(response) {
+		console.log("finished FB.init");
+
+		FB.getLoginStatus(function(response) {
 		console.log("Checking login status");
 	  // Check login status on load, and if the user is
 	  // already logged in, go directly to the welcome message.
@@ -47,13 +55,6 @@ function initFb(){
 		}, {scope: 'user_friends, email, publish_stream, publish_actions  , user_photos '});
 	  }
 	});
-	
-	window.fbAsyncInit = function() {
-		FB.init({
-		  appId      : '776638695748072',
-		  xfbml      : true,
-		  version    : 'v2.2'
-		});
 
 	function onLogin(response) {
 	  if (response.status === 'connected') {
