@@ -6,7 +6,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
   <link rel="stylesheet" type="text/css" href="css/main.css"></link>
   <link rel="stylesheet" href="css/csphotoselector.css">
 
-  <title>Canvas Demo</title>
+  <title>Froodle</title>
 
   <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
   <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
